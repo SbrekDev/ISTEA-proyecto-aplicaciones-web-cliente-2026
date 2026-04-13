@@ -1,28 +1,66 @@
-<section id="contacto">
-    <h2>Contacto</h2>
-    <p>Completa el formulario y nos pondremos en contacto contigo</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Tablero Mayor</title>
+    <meta name="description" content="Contacta con nosotros">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Tablero Mayor</h1>
+        <p>Tu tienda de juegos de mesa</p>
+    </header>
 
-    <form action="#" method="post">
-        <div>
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-        </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="/catalogo.html">Catálogo</a></li>
+            <li><a href="/ofertas.html">Ofertas</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+            <li id="admin-altaProductos"><a href="/alta-producto.html">Alta Productos</a></li>
+        </ul>
+    </nav>
 
-        <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-        </div>
+    <main>
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p>Completa el formulario y nos pondremos en contacto contigo</p>
 
-        <div>
-            <label for="telefono">Teléfono:</label>
-            <input type="tel" id="telefono" name="telefono">
-        </div>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="nombre">Nombre: <span aria-label="requerido">*</span></label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
 
-        <div>
-            <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-        </div>
+                <div class="form-group">
+                    <label for="email">Email: <span aria-label="requerido">*</span></label>
+                    <input type="email" id="email" name="email" required>
+                </div>
 
-        <button type="submit">Enviar</button>
-    </form>
-</section>
+                <div class="form-group">
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono">
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje: <span aria-label="requerido">*</span></label>
+                    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                </div>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <address>
+            <p>Tablero Mayor S.A.</p>
+            <p>Email: contacto@tableromayor.com</p>
+            <p>Teléfono: 0800-123-4567</p>
+        </address>
+        <p>&copy; 2026 Tablero Mayor. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

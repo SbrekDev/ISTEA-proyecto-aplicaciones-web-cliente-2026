@@ -1,99 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alta de Producto - Tablero Mayor</title>
+    <meta name="description" content="Agregar nuevo producto a la tienda">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Tablero Mayor</h1>
+        <p>Tu tienda de juegos de mesa</p>
+    </header>
 
-  <h1>Alta de Producto: Juego de Mesa</h1>
-  <form id="altaProductoForm" action="#" method="post" enctype="multipart/form-data">
-    <!-- Nombre del juego -->
-    <label for="nombre">Nombre del juego: <span aria-label="requerido">*</span></label>
-    <input id="nombre" name="nombre" type="text" required placeholder="Ej. Catan" />
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="/catalogo.html">Catálogo</a></li>
+            <li><a href="/ofertas.html">Ofertas</a></li>
+            <li><a href="/contact.html">Contacto</a></li>
+            <li id="admin-altaProductos"><a href="/alta-producto.html">Alta Productos</a></li>
+        </ul>
+    </nav>
 
-    <!-- Descripción -->
-    <label for="descripcion">Descripción: <span aria-label="requerido">*</span></label>
-    <textarea id="descripcion" name="descripcion" rows="4" required placeholder="Breve descripción del juego"></textarea>
+    <main>
+        <section>
+            <h2>Alta de Producto: Juego de Mesa</h2>
+            <form id="altaProductoForm" action="#" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="nombre">Nombre del juego: <span aria-label="requerido">*</span></label>
+                    <input id="nombre" name="nombre" type="text" required placeholder="Ej. Catan">
+                </div>
 
-    <!-- Editorial / Productor -->
-    <label for="editorial">Editorial: <span aria-label="requerido">*</span></label>
-    <input id="editorial" name="editorial" type="text" required placeholder="Editorial o fabricante" />
+                <div class="form-group">
+                    <label for="descripcion">Descripción: <span aria-label="requerido">*</span></label>
+                    <textarea id="descripcion" name="descripcion" rows="4" required placeholder="Breve descripción del juego"></textarea>
+                </div>
 
-    <!-- Año de lanzamiento -->
-    <label for="anio_lanz">Año de lanzamiento: <span aria-label="requerido">*</span></label>
-    <input id="anio_lanz" name="anio_lanz" type="number" min="1900" max="2100" required />
+                <div class="form-group">
+                    <label for="editorial">Editorial: <span aria-label="requerido">*</span></label>
+                    <input id="editorial" name="editorial" type="text" required placeholder="Editorial o fabricante">
+                </div>
 
-    <!-- Fecha de lanzamiento -->
-    <label for="fecha_lanz">Fecha de lanzamiento:</label>
-    <input id="fecha_lanz" name="fecha_lanz" type="date" />
+                <div class="form-group">
+                    <label for="anio_lanz">Año de lanzamiento: <span aria-label="requerido">*</span></label>
+                    <input id="anio_lanz" name="anio_lanz" type="number" min="1900" max="2100" required>
+                </div>
 
-    <!-- Jugadores -->
-    <label for="jugadores_min">Jugadores (mín): <span aria-label="requerido">*</span></label>
-    <input id="jugadores_min" name="jugadores_min" type="number" min="1" required />
+                <div class="form-group">
+                    <label for="fecha_lanz">Fecha de lanzamiento:</label>
+                    <input id="fecha_lanz" name="fecha_lanz" type="date">
+                </div>
 
-    <label for="jugadores_max">Jugadores (máx): <span aria-label="requerido">*</span></label>
-    <input id="jugadores_max" name="jugadores_max" type="number" min="1" required />
+                <div class="form-group">
+                    <label for="jugadores_min">Jugadores (mín): <span aria-label="requerido">*</span></label>
+                    <input id="jugadores_min" name="jugadores_min" type="number" min="1" required>
+                </div>
 
-    <!-- Tiempo de juego -->
-    <label for="tiempo_juego">Tiempo de juego (min): <span aria-label="requerido">*</span></label>
-    <input id="tiempo_juego" name="tiempo_juego" type="number" min="1" required />
+                <div class="form-group">
+                    <label for="jugadores_max">Jugadores (máx): <span aria-label="requerido">*</span></label>
+                    <input id="jugadores_max" name="jugadores_max" type="number" min="1" required>
+                </div>
 
-    <!-- Edad recomendada -->
-    <label for="edad_min">Edad mínima recomendada: <span aria-label="requerido">*</span></label>
-    <input id="edad_min" name="edad_min" type="number" min="3" max="99" required />
+                <div class="form-group">
+                    <label for="tiempo_juego">Tiempo de juego (min): <span aria-label="requerido">*</span></label>
+                    <input id="tiempo_juego" name="tiempo_juego" type="number" min="1" required>
+                </div>
 
-    <!-- Género / categoría → select para variedad de juegos -->
-    <label for="genero">Género / Categoría:</label>
-    <select id="genero" name="genero" required>
-      <option value="estrategia">Estrategia</option>
-      <option value="familia">Familia</option>
-      <option value="party">Party</option>
-      <option value="cooperativo">Cooperativo</option>
-      <option value="euromatheh">Eurojuego</option>
-      <option value="tematico">Temático</option>
-    </select>
+                <div class="form-group">
+                    <label for="edad_min">Edad mínima recomendada: <span aria-label="requerido">*</span></label>
+                    <input id="edad_min" name="edad_min" type="number" min="3" max="99" required>
+                </div>
 
-    <!-- Mecanicas -->
-    <label for="mecanicas">Mecánicas principales:</label>
-    <input id="mecanicas" name="mecanicas" type="text" placeholder="Ej. Colocación de trabajadores, gestión de dados" />
+                <div class="form-group">
+                    <label for="genero">Género / Categoría:</label>
+                    <select id="genero" name="genero" required>
+                        <option value="">Seleccionar...</option>
+                        <option value="estrategia">Estrategia</option>
+                        <option value="familia">Familia</option>
+                        <option value="party">Party</option>
+                        <option value="cooperativo">Cooperativo</option>
+                        <option value="euromatheh">Eurojuego</option>
+                        <option value="tematico">Temático</option>
+                    </select>
+                </div>
 
-    <!-- Idioma -->
-    <label for="idioma">Idioma:</label>
-    <input id="idioma" name="idioma" type="text" required placeholder="Idioma de reglas" />
+                <div class="form-group">
+                    <label for="mecanicas">Mecánicas principales:</label>
+                    <input id="mecanicas" name="mecanicas" type="text" placeholder="Ej. Colocación de trabajadores, gestión de dados">
+                </div>
 
-    <!-- Piezas -->
-    <label for="piezas">Número de piezas:</label>
-    <input id="piezas" name="piezas" type="number" min="1" />
+                <div class="form-group">
+                    <label for="idioma">Idioma:</label>
+                    <input id="idioma" name="idioma" type="text" required placeholder="Idioma de reglas">
+                </div>
 
-    <!-- Dimensiones -->
-    <label for="dimensiones">Dimensiones (L x A x H cm):</label>
-    <input id="dimensiones" name="dimensiones" type="text" placeholder="Ej. 30 x 22 x 6" />
+                <div class="form-group">
+                    <label for="piezas">Número de piezas:</label>
+                    <input id="piezas" name="piezas" type="number" min="1">
+                </div>
 
-    <!-- Peso -->
-    <label for="peso">Peso (kg):</label>
-    <input id="peso" name="peso" type="number" step="0.01" min="0" />
+                <div class="form-group">
+                    <label for="dimensiones">Dimensiones (L x A x H cm):</label>
+                    <input id="dimensiones" name="dimensiones" type="text" placeholder="Ej. 30 x 22 x 6">
+                </div>
 
-    <!-- Stock y precio -->
-    <label for="stock">Stock disponible:</label>
-    <input id="stock" name="stock" type="number" min="0" />
+                <div class="form-group">
+                    <label for="peso">Peso (kg):</label>
+                    <input id="peso" name="peso" type="number" step="0.01" min="0">
+                </div>
 
-    <label for="precio">Precio (€):</label>
-    <input id="precio" name="precio" type="number" step="0.01" min="0" required />
+                <div class="form-group">
+                    <label for="stock">Stock disponible:</label>
+                    <input id="stock" name="stock" type="number" min="0">
+                </div>
 
-    <!-- SKU / SKU -->
-    <label for="sku">SKU:</label>
-    <input id="sku" name="sku" type="text" />
+                <div class="form-group">
+                    <label for="precio">Precio (€): <span aria-label="requerido">*</span></label>
+                    <input id="precio" name="precio" type="number" step="0.01" min="0" required>
+                </div>
 
-    <!-- EAN/UPC -->
-    <label for="ean">EAN/UPC:</label>
-    <input id="ean" name="ean" type="text" />
+                <div class="form-group">
+                    <label for="sku">SKU:</label>
+                    <input id="sku" name="sku" type="text">
+                </div>
 
-    <!-- Imagen (URL) -->
-    <label for="imagen_url">URL de imagen del producto:</label>
-    <input id="imagen_url" name="imagen_url" type="url" placeholder="https://" />
+                <div class="form-group">
+                    <label for="ean">EAN/UPC:</label>
+                    <input id="ean" name="ean" type="text">
+                </div>
 
-    <!-- Imagen (archivo) -->
-    <label for="imagen_file">Subir imagen (archivo):</label>
-    <input id="imagen_file" name="imagen_file" type="file" accept="image/*" />
+                <div class="form-group">
+                    <label for="imagen_url">URL de imagen del producto:</label>
+                    <input id="imagen_url" name="imagen_url" type="url" placeholder="https://">
+                </div>
 
-    <!-- Observaciones -->
-    <label for="observaciones">Observaciones:</label>
-    <textarea id="observaciones" name="observaciones" rows="3"></textarea>
+                <div class="form-group">
+                    <label for="imagen_file">Subir imagen (archivo):</label>
+                    <input id="imagen_file" name="imagen_file" type="file" accept="image/*">
+                </div>
 
-    <button type="submit">Dar de alta</button>
-  </form>
+                <div class="form-group">
+                    <label for="observaciones">Observaciones:</label>
+                    <textarea id="observaciones" name="observaciones" rows="3"></textarea>
+                </div>
 
+                <button type="submit">Dar de alta</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <address>
+            <p>Tablero Mayor S.A.</p>
+            <p>Email: contacto@tableromayor.com</p>
+            <p>Teléfono: 0800-123-4567</p>
+        </address>
+        <p>&copy; 2026 Tablero Mayor. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
