@@ -3,27 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto - Tablero Mayor</title>
+    <title>Contacto - ZONIX</title>
     <meta name="description" content="Contacta con nosotros">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
     <header>
-        <h1>Tablero Mayor</h1>
-        <p>Tu tienda de juegos de mesa</p>
+        <div class="title">
+            <h1>ZONIX</h1>
+        </div>
+        <p class="subtitle">Descubre los mejores juegos de mesa para toda la familia</p>
     </header>
 
     <nav>
         <ul>
-            <li><a href="index.html">Inicio</a></li>
+            <li><a href="/index.html">Inicio</a></li>
             <li><a href="/catalogo.html">Catálogo</a></li>
             <li><a href="/ofertas.html">Ofertas</a></li>
-            <li><a href="contact.html">Contacto</a></li>
-            <li id="admin-altaProductos"><a href="/alta-producto.html">Alta Productos</a></li>
+            <li><a href="/contact.html" class="active">Contacto</a></li>
         </ul>
+        <div class="nav-right">
+            <div class="carrito-container">
+                <button id="btn-carrito" class="carrito-btn" aria-label="Ver carrito">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    <span class="carrito-count">0</span>
+                </button>
+                <div id="carrito-dropdown" class="carrito-dropdown">
+                    <h3>Tu Carrito</h3>
+                    <div class="carrito-items">
+                        <p class="carrito-vacio">Tu carrito está vacío</p>
+                    </div>
+                    <div class="carrito-total">
+                        <span>Total:</span>
+                        <span class="carrito-precio">$0</span>
+                    </div>
+                    <button class="btn-ver-carrito">Ver Carrito</button>
+                </div>
+            </div>
+            <a href="/alta-producto.html" class="admin-link">Alta Productos</a>
+        </div>
     </nav>
 
-    <main>
+    <main class="main-content">
         <section id="contacto">
             <h2>Contacto</h2>
             <p>Completa el formulario y nos pondremos en contacto contigo</p>
@@ -56,11 +77,26 @@
 
     <footer>
         <address>
-            <p>Tablero Mayor S.A.</p>
-            <p>Email: contacto@tableromayor.com</p>
+            <p>ZONIX S.A.</p>
+            <p>Email: contacto@zonix.com</p>
             <p>Teléfono: 0800-123-4567</p>
         </address>
-        <p>&copy; 2026 Tablero Mayor. Todos los derechos reservados.</p>
+        <p>&copy; 2026 ZONIX. Todos los derechos reservados.</p>
     </footer>
+    <script>
+        document.getElementById('btn-carrito').addEventListener('click', function(e) {
+            e.stopPropagation();
+            var dropdown = document.getElementById('carrito-dropdown');
+            dropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function() {
+            document.getElementById('carrito-dropdown').classList.remove('active');
+        });
+
+        document.getElementById('carrito-dropdown').addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    </script>
 </body>
 </html>
