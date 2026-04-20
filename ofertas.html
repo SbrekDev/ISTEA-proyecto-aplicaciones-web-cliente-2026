@@ -3,104 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ofertas - Tablero Mayor</title>
+    <title>Ofertas - ZONIX</title>
     <meta name="description" content="Ofertas en juegos de mesa">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
     <header>
-        <h1>Tablero Mayor</h1>
-        <p>Tu tienda de juegos de mesa</p>
+        <div class="title">
+            <h1>ZONIX</h1>
+        </div>
+        <p class="subtitle">Descubre los mejores juegos de mesa para toda la familia</p>
     </header>
 
     <nav>
         <ul>
             <li><a href="/index.html">Inicio</a></li>
             <li><a href="/catalogo.html">Catálogo</a></li>
-            <li><a href="/ofertas.html">Ofertas</a></li>
+            <li><a href="/ofertas.html" class="active">Ofertas</a></li>
             <li><a href="/contact.html">Contacto</a></li>
-            <li id="admin-altaProductos"><a href="/alta-producto.html">Alta Productos</a></li>
         </ul>
+        <div class="nav-right">
+            <div class="carrito-container">
+                <button id="btn-carrito" class="carrito-btn" aria-label="Ver carrito">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    <span class="carrito-count">0</span>
+                </button>
+                <div id="carrito-dropdown" class="carrito-dropdown">
+                    <h3>Tu Carrito</h3>
+                    <div class="carrito-items">
+                        <p class="carrito-vacio">Tu carrito está vacío</p>
+                    </div>
+                    <div class="carrito-total">
+                        <span>Total:</span>
+                        <span class="carrito-precio">$0</span>
+                    </div>
+                    <button class="btn-ver-carrito">Ver Carrito</button>
+                </div>
+            </div>
+            <a href="/alta-producto.html" class="admin-link">Alta Productos</a>
+        </div>
     </nav>
 
-    <main>
-        <section id="ofertas">
-            <h2>Ofertas Especiales</h2>
-            <p class="ofertas-subtitle">¡Aprovecha nuestros descuentos!</p>
-            
-            <div class="productos-grid">
-                <article class="producto-card oferta">
-                    <span class="descuento">-30%</span>
-                    <img src="https://via.placeholder.com/300x200/e74c3c/fff?text=Scratch+Wars" alt="Scratch Wars">
-                    <div class="producto-info">
-                        <h3>Scratch Wars</h3>
-                        <p class="descripcion">Combate espacial estratégico</p>
-                        <p class="precio"><span class="precio-original">$60.00</span> $42.00</p>
-                        <div class="producto-botones">
-                            <button>Agregar al Carrito</button>
-                            <a href="#" class="btn-detalles">Ver Detalles</a>
-                        </div>
-                    </div>
-                </article>
+    <div class="container">
+        <div id="sidebar-container" class="sidebar-container" data-show-filtros="true"></div>
 
-                <article class="producto-card oferta">
-                    <span class="descuento">-25%</span>
-                    <img src="https://via.placeholder.com/300x200/8e44ad/fff?text=Dominion" alt="Dominion">
-                    <div class="producto-info">
-                        <h3>Dominion</h3>
-                        <p class="descripcion">Construye tu mazo de cartas</p>
-                        <p class="precio"><span class="precio-original">$40.00</span> $30.00</p>
-                        <div class="producto-botones">
-                            <button>Agregar al Carrito</button>
-                            <a href="#" class="btn-detalles">Ver Detalles</a>
+        <main class="main-content">
+            <section id="ofertas">
+                <h2>Ofertas Especiales</h2>
+                <p class="ofertas-subtitle">¡Aprovecha nuestros descuentos!</p>
+                
+                <div class="productos-grid">
+                    <article class="producto-card oferta">
+                        <span class="descuento">-30%</span>
+                        <img src="https://placehold.co/300x200/e74c3c/fff?text=Scratch+Wars" alt="Scratch Wars">
+                        <div class="producto-info">
+                            <h3>Scratch Wars</h3>
+                            <p class="descripcion">Combate espacial estratégico</p>
+                            <p class="precio"><span class="precio-original">$60.000</span> $42.000</p>
+                            <div class="producto-botones">
+                                <button>Agregar al Carrito</button>
+                                <a href="#" class="btn-detalles">Ver Detalles</a>
+                            </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
 
-                <article class="producto-card oferta">
-                    <span class="descuento">-40%</span>
-                    <img src="https://via.placeholder.com/300x200/27ae60/fff?text=Pandemic" alt="Pandemic">
-                    <div class="producto-info">
-                        <h3>Pandemic</h3>
-                        <p class="descripcion">Juego cooperativo de enfermedades</p>
-                        <p class="precio"><span class="precio-original">$50.00</span> $30.00</p>
-                        <div class="producto-botones">
-                            <button>Agregar al Carrito</button>
-                            <a href="#" class="btn-detalles">Ver Detalles</a>
+                    <article class="producto-card oferta">
+                        <span class="descuento">-25%</span>
+                        <img src="https://placehold.co/300x200/8e44ad/fff?text=Dominion" alt="Dominion">
+                        <div class="producto-info">
+                            <h3>Dominion</h3>
+                            <p class="descripcion">Construye tu mazo de cartas</p>
+                            <p class="precio"><span class="precio-original">$40.000</span> $30.000</p>
+                            <div class="producto-botones">
+                                <button>Agregar al Carrito</button>
+                                <a href="#" class="btn-detalles">Ver Detalles</a>
+                            </div>
                         </div>
-                    </div>
-                </article>
+                    </article>
 
-                <article class="producto-card oferta">
-                    <span class="descuento">-20%</span>
-                    <img src="https://via.placeholder.com/300x200/f39c12/fff?text=Azul" alt="Azul">
-                    <div class="producto-info">
-                        <h3>Azul</h3>
-                        <p class="descripcion">Diseño de exteriores portugueses</p>
-                        <p class="precio"><span class="precio-original">$35.00</span> $28.00</p>
-                        <div class="producto-botones">
-                            <button>Agregar al Carrito</button>
-                            <a href="#" class="btn-detalles">Ver Detalles</a>
+                    <article class="producto-card oferta">
+                        <span class="descuento">-40%</span>
+                        <img src="https://placehold.co/300x200/27ae60/fff?text=Pandemic" alt="Pandemic">
+                        <div class="producto-info">
+                            <h3>Pandemic</h3>
+                            <p class="descripcion">Juego cooperativo de enfermedades</p>
+                            <p class="precio"><span class="precio-original">$50.000</span> $30.000</p>
+                            <div class="producto-botones">
+                                <button>Agregar al Carrito</button>
+                                <a href="#" class="btn-detalles">Ver Detalles</a>
+                            </div>
                         </div>
-                    </div>
-                </article>
-            </div>
-        </section>
-    </main>
+                    </article>
 
-    <aside>
-        <h3>Información</h3>
-        <p>Envíos a todo el país</p>
-        <p>Atención al cliente: Lun-Sáb 9:00-18:00</p>
-    </aside>
+                    <article class="producto-card oferta">
+                        <span class="descuento">-20%</span>
+                        <img src="https://placehold.co/300x200/f39c12/fff?text=Azul" alt="Azul">
+                        <div class="producto-info">
+                            <h3>Azul</h3>
+                            <p class="descripcion">Diseño de exteriores portugueses</p>
+                            <p class="precio"><span class="precio-original">$35.000</span> $28.000</p>
+                            <div class="producto-botones">
+                                <button>Agregar al Carrito</button>
+                                <a href="#" class="btn-detalles">Ver Detalles</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </section>
+        </main>
+    </div>
 
     <footer>
         <address>
-            <p>Tablero Mayor S.A.</p>
-            <p>Email: contacto@tableromayor.com</p>
+            <p>ZONIX S.A.</p>
+            <p>Email: contacto@zonix.com</p>
             <p>Teléfono: 0800-123-4567</p>
         </address>
-        <p>&copy; 2026 Tablero Mayor. Todos los derechos reservados.</p>
+        <p>&copy; 2026 ZONIX. Todos los derechos reservados.</p>
     </footer>
+    <script src="/components/sidebar-categorias.js"></script>
+    <script>
+        document.getElementById('btn-carrito').addEventListener('click', function(e) {
+            e.stopPropagation();
+            var dropdown = document.getElementById('carrito-dropdown');
+            dropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function() {
+            document.getElementById('carrito-dropdown').classList.remove('active');
+        });
+
+        document.getElementById('carrito-dropdown').addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    </script>
 </body>
 </html>
