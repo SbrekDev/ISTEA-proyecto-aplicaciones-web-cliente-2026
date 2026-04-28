@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto - ZONIX</title>
+    <meta name="description" content="Detalle del producto - ZONIX">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <header>
+        <div class="title">
+            <h1>ZONIX</h1>
+        </div>
+        <p class="subtitle">Descubre los mejores juegos de mesa para toda la familia</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/index.html">Inicio</a></li>
+            <li><a href="/catalogo.html">Catálogo</a></li>
+            <li><a href="/ofertas.html">Ofertas</a></li>
+            <li><a href="/contact.html">Contacto</a></li>
+        </ul>
+        <div class="nav-right">
+            <div class="carrito-container">
+                <button id="btn-carrito" class="carrito-btn" aria-label="Ver carrito">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    <span class="carrito-count">0</span>
+                </button>
+                <div id="carrito-dropdown" class="carrito-dropdown">
+                    <h3>Tu Carrito</h3>
+                    <div class="carrito-items">
+                        <p class="carrito-vacio">Tu carrito está vacío</p>
+                    </div>
+                    <div class="carrito-total">
+                        <span>Total:</span>
+                        <span class="carrito-precio">$0</span>
+                    </div>
+                    <button class="btn-ver-carrito">Ver Carrito</button>
+                </div>
+            </div>
+            <a href="/alta-producto.html" class="admin-link">Alta Productos</a>
+        </div>
+    </nav>
+
+    <main class="producto-detalle">
+
+        <div class="producto-layout">
+            <section class="producto-galeria">
+                <div class="galeria-principal">
+                    <input type="radio" name="galeria" id="img1" checked class="galeria-radio">
+                    <input type="radio" name="galeria" id="img2" class="galeria-radio">
+                    <input type="radio" name="galeria" id="img3" class="galeria-radio">
+                    <input type="radio" name="galeria" id="img4" class="galeria-radio">
+                    <div class="galeria-contenido">
+                        <div class="galeria-slide">
+                            <img src="https://placehold.ico/600x400/2c3e50/fff?text=Catan+1" alt="Catan - Vista principal">
+                        </div>
+                        <div class="galeria-slide">
+                            <img src="https://placehold.ico/600x400/34495e/fff?text=Catan+2" alt="Catan - Componentes">
+                        </div>
+                        <div class="galeria-slide">
+                            <img src="https://placehold.ico/600x400/2c3e50/fff?text=Catan+3" alt="Catan - Tablero">
+                        </div>
+                        <div class="galeria-slide">
+                            <img src="https://placehold.ico/600x400/34495e/fff?text=Catan+4" alt="Catan - Dados">
+                        </div>
+                    </div>
+                    <nav class="galeria-nav">
+                        <label for="img1" class="thumb"><img src="https://placehold.ico/80x80/2c3e50/fff?text=1" alt="Miniatura 1"></label>
+                        <label for="img2" class="thumb"><img src="https://placehold.ico/80x80/34495e/fff?text=2" alt="Miniatura 2"></label>
+                        <label for="img3" class="thumb"><img src="https://placehold.ico/80x80/2c3e50/fff?text=3" alt="Miniatura 3"></label>
+                        <label for="img4" class="thumb"><img src="https://placehold.ico/80x80/34495e/fff?text=4" alt="Miniatura 4"></label>
+                    </nav>
+                </div>
+            </section>
+
+            <section class="producto-info">
+                <span class="producto-categoria">Juego de Estrategia</span>
+                <h1 class="producto-titulo">Catan</h1>
+                <p class="producto-resumen">Construye tu reino en la isla de Catan. El clásico juego de estrategia que ha conquistado millones de jugadores en todo el mundo.</p>
+                
+                <div class="producto-precio-box">
+                    <div class="precio-actual">
+                        <span class="precio-label">Precio</span>
+                        <span class="precio-valor">$45.000</span>
+                    </div>
+                    <div class="cuotas">
+                        <span class="cuotas-valor">12</span>
+                        <span class="cuotas-texto">cuotas sin interés de <strong>$3.750</strong></span>
+                    </div>
+                    <div class="metodos-pago">
+                        <span class="metodo-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                            Tarjeta de crédito
+                        </span>
+                        <span class="metodo-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                            Tarjeta de débito
+                        </span>
+                        <span class="metodo-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                            Efectivo
+                        </span>
+                    </div>
+                </div>
+
+                <div class="producto-cantidad">
+                    <label for="cantidad">Cantidad:</label>
+                    <div class="cantidad-control">
+                        <button type="button" class="cantidad-btn" data-action="decrease">−</button>
+                        <input type="number" id="cantidad" name="cantidad" value="1" min="1" max="10">
+                        <button type="button" class="cantidad-btn" data-action="increase">+</button>
+                    </div>
+                    <span class="stock-disponible">Stock disponible</span>
+                </div>
+
+                <div class="producto-acciones">
+                    <button class="btn-agregar-carrito">Agregar al carrito</button>
+                    <button class="btn-comprar-ahora">Comprar ahora</button>
+                </div>
+
+                <div class="producto-envio">
+                    <div class="envio-icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                    </div>
+                    <div class="envio-info">
+                        <p class="envio-titulo">Llega el <strong>miércoles 29 de abr</strong></p>
+                        <p class="envio-llegada">Llega a tu domicilio</p>
+                        <p class="envio-costo">Ver costos de envío</p>
+                    </div>
+                </div>
+
+                <div class="producto-proteccion">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <span>Compra protegida, siempre</span>
+                </div>
+            </section>
+        </div>
+
+        <section class="producto-caracteristicas">
+            <h2>Características</h2>
+            <div class="caracteristicas-grid">
+                <div class="caracteristica-item">
+                    <span class="caracteristica-icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    </span>
+                    <div class="caracteristica-info">
+                        <span class="caracteristica-label">Jugadores</span>
+                        <span class="caracteristica-valor">3 a 4</span>
+                    </div>
+                </div>
+                <div class="caracteristica-item">
+                    <span class="caracteristica-icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                    </span>
+                    <div class="caracteristica-info">
+                        <span class="caracteristica-label">Duración</span>
+                        <span class="caracteristica-valor">60-120 min</span>
+                    </div>
+                </div>
+                <div class="caracteristica-item">
+                    <span class="caracteristica-icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                    </span>
+                    <div class="caracteristica-info">
+                        <span class="caracteristica-label">Dificultad</span>
+                        <span class="caracteristica-valor">Media</span>
+                    </div>
+                </div>
+                <div class="caracteristica-item">
+                    <span class="caracteristica-icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </span>
+                    <div class="caracteristica-info">
+                        <span class="caracteristica-label">Edad</span>
+                        <span class="caracteristica-valor">10+ años</span>
+                    </div>
+                </div>
+                <div class="caracteristica-item">
+                    <span class="caracteristica-icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg>
+                    </span>
+                    <div class="caracteristica-info">
+                        <span class="caracteristica-label">Caja</span>
+                        <span class="caracteristica-valor">32 x 22 x 7 cm</span>
+                    </div>
+                </div>
+                <div class="caracteristica-item">
+                    <span class="caracteristica-icono">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                    </span>
+                    <div class="caracteristica-info">
+                        <span class="caracteristica-label">Distribuidora</span>
+                        <span class="caracteristica-valor">Devir</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="producto-descripcion">
+            <h2>Descripción</h2>
+            <div class="descripcion-contenido">
+                <p>¡Bienvenido a CATAN! En este juego de estrategia cada участник intenta ser el principal.colono en la isla. Los jugadores intercambian recursos y construyen carreteras, pueblos y ciudades mientrascompiten por los mejores terrenos.</p>
+                
+                <p>Conviértete en el Mayor Colono de CATAN en este juego clásico que ha encantado a millones dedisfrutadores de juegos de mesa en todo el mundo. Desde 1995, Catan se ha convertido en unreferente en los juegos de mesa modernos.</p>
+                
+                <h3>¿Cómo se juega?</h3>
+                <p>Los jugadores comienzan con un pequeño asentamiento y deben expandirse por toda la isla.recogiendo recursos (madera, ladrillo, lana, trigo y mineral) que se generan según los dados. Intercambia.recursos con otros jugadores o en los puertos marítimos para construir y desarrollar tu civilización.</p>
+                
+                <h3>Contenido de la caja</h3>
+                <ul>
+                    <li>1 tablero modular de 6 piezas</li>
+                    <li>19 tarjetas dehexágonos</li>
+                    <li>95 cartas de recurso</li>
+                    <li>25 cartas de desarrollo</li>
+                    <li>4 cartas de referencia</li>
+                    <li>2 dados</li>
+                    <li>80 Meeples (piezas de juego)</li>
+                    <li>1 reglamento ilustrado</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <address>
+            <p>ZONIX S. A.</p>
+            <p>Email: contacto@zonix.com</p>
+            <p>Teléfono: 0800-123-45-67</p>
+        </address>
+        <p>&copy; 2026 ZONIX. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById('btn-carrito').addEventListener('click', function(e) {
+            e.stopPropagation();
+            document.getElementById('carrito-dropdown').classList.toggle('active');
+        });
+
+        document.addEventListener('click', function() {
+            document.getElementById('carrito-dropdown').classList.remove('active');
+        });
+
+        document.getElementById('carrito-dropdown').addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        var cantidadInput = document.getElementById('cantidad');
+        document.querySelectorAll('.cantidad-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var action = this.getAttribute('data-action');
+                var current = parseInt(cantidadInput.value);
+                var max = parseInt(cantidadInput.max);
+                if (action === 'increase' && current < max) {
+                    cantidadInput.value = current + 1;
+                } else if (action === 'decrease' && current > 1) {
+                    cantidadInput.value = current - 1;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
