@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - ZONIX</title>
+    <meta name="description" content="Tu carrito de compras">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/carrito.css">
+</head>
+<body data-page="carrito">
+    <header>
+        <div class="title">
+            <h1>ZONIX</h1>
+        </div>
+        <p class="subtitle">Descubre los mejores juegos de mesa para toda la familia</p>
+    </header>
+
+    <span id="nav-placeholder"></span>
+    <script src="/components/nav.js"></script>
+
+    <main class="carrito-page">
+        <div class="carrito-layout">
+            <section class="carrito-items-section">
+                <h2>Tu Carrito (<span id="carrito-cantidad">3</span> productos)</h2>
+                
+                <div class="carrito-producto-item">
+                    <button class="btn-cerrar-item" aria-label="Eliminar producto">&times;</button>
+                    <div class="item-info-group">
+                        <div class="item-imagen">
+                            <img src="https://placehold.co/100x100/2c3e50/fff?text=Catan" alt="Catan">
+                        </div>
+                        <div class="item-detalles">
+                            <h3 class="item-titulo">Catan</h3>
+                            <p class="item-categoria">Juego de Estrategia</p>
+                            <p class="item-disponibilidad"> stock disponible</p>
+                        </div>
+                    </div>
+                    <div class="item-cantidad">
+                        <div class="cantidad-control">
+                            <button class="cantidad-btn" aria-label="Decrease">-</button>
+                            <input type="number" value="1" min="1" readonly>
+                            <button class="cantidad-btn" aria-label="Increase">+</button>
+                        </div>
+                    </div>
+                    <div class="item-precio">
+                        <span class="precio-valor">$45.000</span>
+                    </div>
+                </div>
+
+                <div class="carrito-producto-item">
+                    <button class="btn-cerrar-item" aria-label="Eliminar producto">&times;</button>
+                    <div class="item-info-group">
+                        <div class="item-imagen">
+                            <img src="https://placehold.co/100x100/3498db/fff?text=Carcassonne" alt="Carcassonne">
+                        </div>
+                        <div class="item-detalles">
+                            <h3 class="item-titulo">Carcassonne</h3>
+                            <p class="item-categoria">Juego de Colocación</p>
+                            <p class="item-disponibilidad"> stock disponible</p>
+                        </div>
+                    </div>
+                    <div class="item-cantidad">
+                        <div class="cantidad-control">
+                            <button class="cantidad-btn" aria-label="Decrease">-</button>
+                            <input type="number" value="1" min="1" readonly>
+                            <button class="cantidad-btn" aria-label="Increase">+</button>
+                        </div>
+                    </div>
+                    <div class="item-precio">
+                        <span class="precio-valor">$35.000</span>
+                    </div>
+                </div>
+
+                <div class="carrito-producto-item">
+                    <button class="btn-cerrar-item" aria-label="Eliminar producto">&times;</button>
+                    <div class="item-info-group">
+                        <div class="item-imagen">
+                            <img src="https://placehold.co/100x100/e74c3c/fff?text=Ticket" alt="Ticket to Ride">
+                        </div>
+                        <div class="item-detalles">
+                            <h3 class="item-titulo">Ticket to Ride</h3>
+                            <p class="item-categoria">Juego Familiar</p>
+                            <p class="item-disponibilidad"> stock disponible</p>
+                        </div>
+                    </div>
+                    <div class="item-cantidad">
+                        <div class="cantidad-control">
+                            <button class="cantidad-btn" aria-label="Decrease">-</button>
+                            <input type="number" value="1" min="1" readonly>
+                            <button class="cantidad-btn" aria-label="Increase">+</button>
+                        </div>
+                    </div>
+                    <div class="item-precio">
+                        <span class="precio-valor">$50.000</span>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="carrito-resumen">
+                <h3>Resumen de Compra</h3>
+                <div class="resumen-items">
+                    <div class="resumen-item">
+                        <span>3 productos</span>
+                        <span>$130.000</span>
+                    </div>
+                    <div class="resumen-item">
+                        <span>Envío</span>
+                        <span class="envio-gratis">Gratis</span>
+                    </div>
+                </div>
+                <div class="resumen-total">
+                    <span>Total</span>
+                    <span class="total-valor">$130.000</span>
+                </div>
+                <button class="btn-comprar" onclick="window.location.href='/checkout.html'">Comprar</button>
+                <div class="resumen-seguridad">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <span>Comprá con seguridad</span>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <address>
+            <p>ZONIX S.A.</p>
+            <p>Email: contacto@zonix.com</p>
+            <p>Teléfono: 0800-123-4567</p>
+        </address>
+        <p>&copy; 2026 ZONIX. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

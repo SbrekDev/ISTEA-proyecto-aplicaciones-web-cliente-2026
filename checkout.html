@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - ZONIX</title>
+    <meta name="description" content="Finaliza tu compra">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/carrito.css">
+    <link rel="stylesheet" href="styles/checkout.css">
+</head>
+<body data-page="checkout">
+    <header>
+        <div class="title">
+            <h1>ZONIX</h1>
+        </div>
+        <p class="subtitle">Descubre los mejores juegos de mesa para toda la familia</p>
+    </header>
+
+    <span id="nav-placeholder"></span>
+    <script src="/components/nav.js"></script>
+
+    <main class="checkout-page">
+        <div class="checkout-layout">
+            <section class="checkout-form-section">
+                <div class="checkout-step">
+                    <span class="step-number">1</span>
+                    <h2>Datos Personales</h2>
+                </div>
+                
+                <form class="form datos-factura">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tipo-doc">Tipo de Documento</label>
+                            <select id="tipo-doc" name="tipo-doc">
+                                <option value="">Seleccionar</option>
+                                <option value="dni">DNI</option>
+                                <option value="cuit">CUIT</option>
+                                <option value="cuil">CUIL</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="nro-doc">Número de Documento</label>
+                            <input type="text" id="nro-doc" name="nro-doc" placeholder="Ingresa tu número">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Como aparece en el documento">
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido">Apellido</label>
+                            <input type="text" id="apellido" name="apellido" placeholder="Como aparece en el documento">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="tu@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" placeholder="Número de teléfono">
+                    </div>
+                </form>
+
+                <div class="checkout-step">
+                    <span class="step-number">2</span>
+                    <h2>Datos de Entrega</h2>
+                </div>
+
+                <form class="form datos-entrega">
+                    <div class="form-group">
+                        <label for="direccion">Dirección</label>
+                        <input type="text" id="direccion" name="direccion" placeholder="Calle y número">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="piso">Piso/Dpto (opcional)</label>
+                            <input type="text" id="piso" name="piso" placeholder="Piso, dto, etc">
+                        </div>
+                        <div class="form-group">
+                            <label for="cp">Código Postal</label>
+                            <input type="text" id="cp" name="cp" placeholder="Código postal">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ciudad">Ciudad</label>
+                        <input type="text" id="ciudad" name="ciudad" placeholder="Ciudad">
+                    </div>
+                </form>
+
+                <div class="checkout-step">
+                    <span class="step-number">3</span>
+                    <h2>Forma de Pago</h2>
+                </div>
+
+                <form class="form datos-pago">
+                    <div class="form-group">
+                        <label for="nombre-titular">Nombre del Titular</label>
+                        <input type="text" id="nombre-titular" name="nombre-titular" placeholder="Nombre como aparece en la tarjeta">
+                    </div>
+                    <div class="form-group">
+                        <label for="nro-tarjeta">Número de Tarjeta</label>
+                        <input type="text" id="nro-tarjeta" name="nro-tarjeta" placeholder="1234 5678 9012 3456" maxlength="19">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vencimiento">Vencimiento</label>
+                            <div class="fecha-control">
+                                <input type="text" id="vencimiento" name="mes" placeholder="MM" maxlength="2">
+                                <span>/</span>
+                                <input type="text" name="anio" placeholder="AA" maxlength="2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">Código de Seguridad</label>
+                            <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dni-titular">DNI del Titular</label>
+                        <input type="text" id="dni-titular" name="dni-titular" placeholder="Sin puntos">
+                    </div>
+                </form>
+
+                <button type="submit" class="btn-confirmar">Confirmar Compra</button>
+            </section>
+
+            <aside class="checkout-resumen">
+                <h3>Resumen del Pedido</h3>
+                
+                <div class="resumen-productos">
+                    <div class="resumen-producto">
+                        <img src="https://placehold.co/60x60/2c3e50/fff?text=Catan" alt="Catan">
+                        <div class="resumen-producto-info">
+                            <h4>Catan</h4>
+                            <span>1 unidad</span>
+                        </div>
+                        <span class="resumen-producto-precio">$45.000</span>
+                    </div>
+                    <div class="resumen-producto">
+                        <img src="https://placehold.co/60x60/3498db/fff?text=Carcassonne" alt="Carcassonne">
+                        <div class="resumen-producto-info">
+                            <h4>Carcassonne</h4>
+                            <span>1 unidad</span>
+                        </div>
+                        <span class="resumen-producto-precio">$35.000</span>
+                    </div>
+                    <div class="resumen-producto">
+                        <img src="https://placehold.co/60x60/e74c3c/fff?text=Ticket" alt="Ticket to Ride">
+                        <div class="resumen-producto-info">
+                            <h4>Ticket to Ride</h4>
+                            <span>1 unidad</span>
+                        </div>
+                        <span class="resumen-producto-precio">$50.000</span>
+                    </div>
+                </div>
+
+                <div class="resumen-subtotal">
+                    <span>Subtotal</span>
+                    <span>$130.000</span>
+                </div>
+                <div class="resumen-envio">
+                    <span>Envío</span>
+                    <span class="envio-gratis">Gratis</span>
+                </div>
+                <div class="resumen-total">
+                    <span>Total</span>
+                    <span class="total-valor">$130.000</span>
+                </div>
+
+                <div class="resumen-proteccion">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    <span>Tu compra está protegida</span>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <footer>
+        <address>
+            <p>ZONIX S.A.</p>
+            <p>Email: contacto@zonix.com</p>
+            <p>Teléfono: 0800-123-4567</p>
+        </address>
+        <p>&copy; 2026 ZONIX. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

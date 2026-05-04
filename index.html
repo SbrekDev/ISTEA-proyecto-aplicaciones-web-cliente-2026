@@ -7,7 +7,7 @@
     <meta name="description" content="Tienda online de juegos de mesa">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
-<body>
+<body data-page="index">
     <header>
         <div class="title">
             <h1>ZONIX</h1>
@@ -15,34 +15,8 @@
         <p class="subtitle">Descubre los mejores juegos de mesa para toda la familia</p>
     </header>
 
-    <nav>
-        <ul>
-            <li><a href="/index.html" class="active">Inicio</a></li>
-            <li><a href="/catalogo.html">Catálogo</a></li>
-            <li><a href="/ofertas.html">Ofertas</a></li>
-            <li><a href="/contact.html">Contacto</a></li>
-        </ul>
-        <div class="nav-right">
-            <div class="carrito-container">
-                <button id="btn-carrito" class="carrito-btn" aria-label="Ver carrito">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                    <span class="carrito-count">0</span>
-                </button>
-                <div id="carrito-dropdown" class="carrito-dropdown">
-                    <h3>Tu Carrito</h3>
-                    <div class="carrito-items">
-                        <p class="carrito-vacio">Tu carrito está vacío</p>
-                    </div>
-                    <div class="carrito-total">
-                        <span>Total:</span>
-                        <span class="carrito-precio">$0</span>
-                    </div>
-                    <button class="btn-ver-carrito">Ver Carrito</button>
-                </div>
-            </div>
-            <a href="/alta-producto.html" class="admin-link">Alta Productos</a>
-        </div>
-    </nav>
+    <span id="nav-placeholder"></span>
+    <script src="/components/nav.js"></script>
 
     <button id="btn-menu-filtros" class="btn-menu-filtros" aria-label="Abrir filtros">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
@@ -149,9 +123,10 @@
             <section id="sucursal">
                 <h2>Nuestra Sucursal</h2>
                 <iframe 
-                    src="https://www.google.com/maps?q=Buenos+Aires&output=embed"
+                    src="https://www.google.com/maps?q=-34.6037,-58.3817&z=15&output=embed"
                     title="Ubicación de la tienda">
                 </iframe>
+                <p class="sucursal-direccion">Av. Corrientes 1234, Ciudad Autónoma de Buenos Aires</p>
             </section>
         </main>
     </div>
@@ -166,20 +141,6 @@
     </footer>
     <script src="/components/sidebar-categorias.js"></script>
     <script>
-        document.getElementById('btn-carrito').addEventListener('click', function(e) {
-            e.stopPropagation();
-            var dropdown = document.getElementById('carrito-dropdown');
-            dropdown.classList.toggle('active');
-        });
-
-        document.addEventListener('click', function() {
-            document.getElementById('carrito-dropdown').classList.remove('active');
-        });
-
-        document.getElementById('carrito-dropdown').addEventListener('click', function(e) {
-            e.stopPropagation();
-        });
-
         document.getElementById('btn-menu-filtros').addEventListener('click', function() {
             document.getElementById('sidebar-container').classList.toggle('active');
         });
