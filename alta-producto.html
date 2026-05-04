@@ -21,7 +21,6 @@
             <li><a href="/catalogo.html">Catálogo</a></li>
             <li><a href="/ofertas.html">Ofertas</a></li>
             <li><a href="/contact.html">Contacto</a></li>
-            <li><a href="/alta-producto.html" class="active">Alta Productos</a></li>
         </ul>
         <div class="nav-right">
             <div class="carrito-container">
@@ -41,12 +40,14 @@
                     <button class="btn-ver-carrito">Ver Carrito</button>
                 </div>
             </div>
+            <a href="/alta-producto.html" class="admin-link">Alta Productos</a>
         </div>
     </nav>
 
-    <main>
-        <section>
-            <h2>Alta de Producto: Juego de Mesa</h2>
+    <main class="main-content">
+        <section id="alta-producto">
+            <h2>Alta de Producto</h2>
+            <p>Completa el formulario para agregar un nuevo producto</p>
             <form id="altaProductoForm" action="#" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="nombre">Nombre del juego: <span aria-label="requerido">*</span></label>
@@ -179,5 +180,20 @@
         </address>
         <p>&copy; 2026 ZONIX. Todos los derechos reservados.</p>
     </footer>
+    <script>
+        document.getElementById('btn-carrito').addEventListener('click', function(e) {
+            e.stopPropagation();
+            var dropdown = document.getElementById('carrito-dropdown');
+            dropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', function() {
+            document.getElementById('carrito-dropdown').classList.remove('active');
+        });
+
+        document.getElementById('carrito-dropdown').addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    </script>
 </body>
 </html>
