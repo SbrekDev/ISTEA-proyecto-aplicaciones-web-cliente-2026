@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     <nav id="main-nav">
         <div class="nav-left">
             <ul>
-                <li><a href="/index.html" data-page="index">Inicio</a></li>
-                <li><a href="/catalogo.html" data-page="catalogo">Catálogo</a></li>
-                <li><a href="/ofertas.html" data-page="ofertas">Ofertas</a></li>
-                <li><a href="/contact.html" data-page="contact">Contacto</a></li>
+                <li><a href="index.html" data-page="index">Inicio</a></li>
+                <li><a href="catalogo.html" data-page="catalogo">Catálogo</a></li>
+                <li><a href="ofertas.html" data-page="ofertas">Ofertas</a></li>
+                <li><a href="contact.html" data-page="contact">Contacto</a></li>
             </ul>
         </div>
         <div class="nav-right">
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <span>Total:</span>
                         <span class="carrito-precio">$130.000</span>
                     </div>
-                    <button class="btn-ver-carrito" onclick="window.location.href='/carrito.html'">Ver Carrito</button>
+                    <button class="btn-ver-carrito" onclick="window.location.href='carrito.html'">Ver Carrito</button>
                 </div>
             </div>
         </div>

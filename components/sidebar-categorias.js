@@ -49,12 +49,12 @@ function cargarSidebarCategorias(containerId, showFiltros = true) {
         <aside class="sidebar-categorias">
             <h2>Categorías</h2>
             <ul class="categorias-list">
-                <li><a href="/catalogo.html">Todos</a></li>
-                <li><a href="/catalogo.html?categoria=estrategia">Juegos de Estrategia</a></li>
-                <li><a href="/catalogo.html?categoria=cartas">Juegos de Cartas</a></li>
-                <li><a href="/catalogo.html?categoria=dados">Juegos de Dados</a></li>
-                <li><a href="/catalogo.html?categoria=infantiles">Juegos Infantiles</a></li>
-                <li><a href="/catalogo.html?categoria=cooperativos">Juegos Cooperativos</a></li>
+                <li><a href="catalogo.html">Todos</a></li>
+                <li><a href="catalogo.html?categoria=estrategia">Juegos de Estrategia</a></li>
+                <li><a href="catalogo.html?categoria=cartas">Juegos de Cartas</a></li>
+                <li><a href="catalogo.html?categoria=dados">Juegos de Dados</a></li>
+                <li><a href="catalogo.html?categoria=infantiles">Juegos Infantiles</a></li>
+                <li><a href="catalogo.html?categoria=cooperativos">Juegos Cooperativos</a></li>
             </ul>
             ${filtrosHTML}
         </aside>
