@@ -21,21 +21,21 @@ document.addEventListener('DOMContentLoaded', function() {
                     <h3>Tu Carrito</h3>
                     <div class="carrito-items">
                         <div class="carrito-producto">
-                            <img src="https://placehold.co/50x50/2c3e50/fff?text=Catan" alt="Catan">
+                            <img src="assets/images/catan1.webp" alt="Catan">
                             <div class="carrito-producto-info">
                                 <h4>Catan</h4>
                                 <span class="carrito-producto-cantidad">1 x $45.000</span>
                             </div>
                         </div>
                         <div class="carrito-producto">
-                            <img src="https://placehold.co/50x50/3498db/fff?text=Carcassonne" alt="Carcassonne">
+                            <img src="assets/images/carcassone.webp" alt="Carcassonne">
                             <div class="carrito-producto-info">
                                 <h4>Carcassonne</h4>
                                 <span class="carrito-producto-cantidad">1 x $35.000</span>
                             </div>
                         </div>
                         <div class="carrito-producto">
-                            <img src="https://placehold.co/50x50/e74c3c/fff?text=Ticket" alt="Ticket to Ride">
+                            <img src="assets/images/tickettoride.webp" alt="Ticket to Ride">
                             <div class="carrito-producto-info">
                                 <h4>Ticket to Ride</h4>
                                 <span class="carrito-producto-cantidad">1 x $50.000</span>
