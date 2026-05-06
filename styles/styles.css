@@ -54,7 +54,7 @@ header::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: url("/assets/images/header-banner.avif") no-repeat center center;
+    background: url("../assets/images/header-banner.avif") no-repeat center center;
     background-size: cover;
     filter: blur(3px);
     transform: scale(1.1); 
@@ -469,6 +469,7 @@ section h2 {
     height: 100%;
     object-fit: cover;
     transition: transform var(--transition);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .card-destacado:hover .card-imagen img {
@@ -669,6 +670,7 @@ input[type="reset"]:active {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .producto-info {
@@ -941,7 +943,7 @@ input[type="reset"]:active {
 .galeria-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
 }
 
 #img1:checked ~ .galeria-contenido .galeria-slide:nth-child(1),
