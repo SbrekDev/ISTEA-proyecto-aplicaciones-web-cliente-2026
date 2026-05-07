@@ -479,6 +479,9 @@ section h2 {
 .card-contenido {
     padding: var(--spacing-lg);
     padding-top: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .card-contenido h3 {
@@ -518,6 +521,7 @@ section h2 {
     border-radius: var(--border-radius);
     font-size: 0.9rem;
     text-align: center;
+    margin-top: auto;
 }
 
 .btn-ver-detalle:hover {
@@ -702,18 +706,21 @@ input[type="reset"]:active {
 
 .producto-botones button {
     flex: 1;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.85rem;
 }
 
 .producto-botones .btn-detalles {
     flex: 1;
     display: block;
-    padding: var(--spacing-md) var(--spacing-lg);
+    padding: var(--spacing-sm) var(--spacing-md);
     background: var(--primary-color);
     color: #fff;
     text-decoration: none;
     border-radius: var(--border-radius);
     text-align: center;
     font-weight: 600;
+    font-size: 0.85rem;
     transition: background var(--transition), transform var(--transition);
 }
 
@@ -726,23 +733,6 @@ input[type="reset"]:active {
     margin-bottom: var(--spacing-lg);
     font-size: 1.1rem;
     color: var(--text-color);
-}
-
-.producto-card.oferta {
-    position: relative;
-}
-
-.producto-card .descuento {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: var(--accent-color);
-    color: #fff;
-    padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: var(--border-radius);
-    font-weight: bold;
-    font-size: 1.1rem;
-    z-index: 10;
 }
 
 .producto-info .precio-original {
@@ -959,6 +949,7 @@ input[type="reset"]:active {
     gap: var(--spacing-sm);
     flex-wrap: nowrap;
     justify-content: center;
+    align-items: center;
     overflow-x: auto;
     z-index: 10;
 }
@@ -981,28 +972,7 @@ input[type="reset"]:active {
     border: 2px solid transparent;
     opacity: 0.6;
     transition: all var(--transition);
-}
-
-.thumb {
-    width: 60px;
-    height: 60px;
-    flex-shrink: 0;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    cursor: pointer;
-    border: 2px solid transparent;
-    opacity: 0.6;
-    transition: all var(--transition);
-}
-
-.thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.thumb:hover {
-    opacity: 1;
+    margin-top: 7px;
 }
 
 .thumb img {
