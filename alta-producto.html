@@ -22,7 +22,7 @@
         <section id="alta-producto">
             <h2>Alta de Producto</h2>
             <p>Completa el formulario para agregar un nuevo producto</p>
-            <form id="altaProductoForm" action="#" method="post" enctype="multipart/form-data">
+            <form id="altaProductoForm">
                 <div class="form-group">
                     <label for="nombre">Nombre del juego: <span aria-label="requerido">*</span></label>
                     <input id="nombre" name="nombre" type="text" required placeholder="Ej. Catan">
@@ -39,16 +39,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="anio_lanz">Año de lanzamiento: <span aria-label="requerido">*</span></label>
-                    <input id="anio_lanz" name="anio_lanz" type="number" min="1900" max="2100" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="fecha_lanz">Fecha de lanzamiento:</label>
-                    <input id="fecha_lanz" name="fecha_lanz" type="date">
-                </div>
-
-                <div class="form-group">
                     <label for="jugadores_min">Jugadores (mín): <span aria-label="requerido">*</span></label>
                     <input id="jugadores_min" name="jugadores_min" type="number" min="1" required>
                 </div>
@@ -59,8 +49,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="tiempo_juego">Tiempo de juego (min): <span aria-label="requerido">*</span></label>
-                    <input id="tiempo_juego" name="tiempo_juego" type="number" min="1" required>
+                    <label for="tiempo_juego">Tiempo de juego: <span aria-label="requerido">*</span></label>
+                    <input id="tiempo_juego" name="tiempo_juego" type="text" required placeholder="Ej. 30-60 min">
                 </div>
 
                 <div class="form-group">
@@ -69,41 +59,26 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="genero">Género / Categoría:</label>
-                    <select id="genero" name="genero" required>
+                    <label for="categoria">Categoría: <span aria-label="requerido">*</span></label>
+                    <select id="categoria" name="categoria" required>
                         <option value="">Seleccionar...</option>
                         <option value="estrategia">Estrategia</option>
                         <option value="familia">Familia</option>
                         <option value="party">Party</option>
                         <option value="cooperativo">Cooperativo</option>
-                        <option value="euromatheh">Eurojuego</option>
+                        <option value="eurogame">Eurojuego</option>
                         <option value="tematico">Temático</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="mecanicas">Mecánicas principales:</label>
-                    <input id="mecanicas" name="mecanicas" type="text" placeholder="Ej. Colocación de trabajadores, gestión de dados">
-                </div>
-
-                <div class="form-group">
-                    <label for="idioma">Idioma:</label>
+                    <label for="idioma">Idioma: <span aria-label="requerido">*</span></label>
                     <input id="idioma" name="idioma" type="text" required placeholder="Idioma de reglas">
                 </div>
 
                 <div class="form-group">
-                    <label for="piezas">Número de piezas:</label>
-                    <input id="piezas" name="piezas" type="number" min="1">
-                </div>
-
-                <div class="form-group">
-                    <label for="dimensiones">Dimensiones (L x A x H cm):</label>
-                    <input id="dimensiones" name="dimensiones" type="text" placeholder="Ej. 30 x 22 x 6">
-                </div>
-
-                <div class="form-group">
-                    <label for="peso">Peso (kg):</label>
-                    <input id="peso" name="peso" type="number" step="0.01" min="0">
+                    <label for="precio">Precio ($): <span aria-label="requerido">*</span></label>
+                    <input id="precio" name="precio" type="number" step="0.01" min="0" required>
                 </div>
 
                 <div class="form-group">
@@ -112,33 +87,13 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="precio">Precio (€): <span aria-label="requerido">*</span></label>
-                    <input id="precio" name="precio" type="number" step="0.01" min="0" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="sku">SKU:</label>
-                    <input id="sku" name="sku" type="text">
-                </div>
-
-                <div class="form-group">
-                    <label for="ean">EAN/UPC:</label>
-                    <input id="ean" name="ean" type="text">
-                </div>
-
-                <div class="form-group">
                     <label for="imagen_url">URL de imagen del producto:</label>
                     <input id="imagen_url" name="imagen_url" type="url" placeholder="https://">
                 </div>
 
                 <div class="form-group">
-                    <label for="imagen_file">Subir imagen (archivo):</label>
-                    <input id="imagen_file" name="imagen_file" type="file" accept="image/*">
-                </div>
-
-                <div class="form-group">
-                    <label for="observaciones">Observaciones:</label>
-                    <textarea id="observaciones" name="observaciones" rows="3"></textarea>
+                    <label for="peso">Peso (kg):</label>
+                    <input id="peso" name="peso" type="number" step="0.01" min="0">
                 </div>
 
                 <button type="submit">Dar de alta</button>
@@ -154,5 +109,59 @@
         </address>
         <p>&copy; 2026 ZONIX. Todos los derechos reservados.</p>
     </footer>
+
+    <div id="toast-container"></div>
+
+    <script src="components/supabase-creds.js"></script>
+    <script src="components/products-crud.js"></script>
+    <script>
+        document.getElementById('altaProductoForm').addEventListener('submit', async function (e) {
+            e.preventDefault()
+
+            const button = this.querySelector('button[type="submit"]')
+            const originalText = button.textContent
+            button.disabled = true
+            button.textContent = 'Guardando...'
+
+            const product = {
+                name: document.getElementById('nombre').value.trim(),
+                description: document.getElementById('descripcion').value.trim(),
+                editorial: document.getElementById('editorial').value.trim(),
+                minplayers: parseInt(document.getElementById('jugadores_min').value),
+                maxplayers: parseInt(document.getElementById('jugadores_max').value),
+                gametime: document.getElementById('tiempo_juego').value.trim(),
+                minage: parseInt(document.getElementById('edad_min').value),
+                category: document.getElementById('categoria').value,
+                language: document.getElementById('idioma').value.trim(),
+                price: parseFloat(document.getElementById('precio').value),
+                stock: document.getElementById('stock').value ? parseInt(document.getElementById('stock').value) : null,
+                imageurl: document.getElementById('imagen_url').value.trim() || null,
+                weight: document.getElementById('peso').value ? parseFloat(document.getElementById('peso').value) : null
+            }
+
+            try {
+                await createProduct(product)
+                showToast('Producto creado exitosamente', 'success')
+                this.reset()
+            } catch (err) {
+                showToast('Error al crear producto: ' + err.message, 'error')
+            } finally {
+                button.disabled = false
+                button.textContent = originalText
+            }
+        })
+
+        function showToast(message, type) {
+            const container = document.getElementById('toast-container')
+            const toast = document.createElement('div')
+            toast.className = 'toast toast-' + type
+            toast.textContent = message
+            container.appendChild(toast)
+            setTimeout(function () {
+                toast.classList.add('toast-fade')
+                setTimeout(function () { toast.remove() }, 400)
+            }, 3500)
+        }
+    </script>
 </body>
 </html>
