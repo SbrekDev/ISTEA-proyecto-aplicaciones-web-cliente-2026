@@ -73,6 +73,56 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    var zonixUser = sessionStorage.getItem('zonix_user')
+    if (zonixUser === 'admin' || zonixUser === 'user') {
+        var navLeftUl = document.querySelector('.nav-left ul')
+        if (zonixUser === 'admin' && navLeftUl) {
+            var adminLi = document.createElement('li')
+            var adminLink = document.createElement('a')
+            adminLink.href = 'admin-productos.html'
+            adminLink.setAttribute('data-page', 'admin-productos')
+            adminLink.textContent = 'Admin'
+            if (currentPage === 'admin-productos') {
+                adminLink.classList.add('active')
+            }
+            adminLi.appendChild(adminLink)
+            navLeftUl.appendChild(adminLi)
+        }
+
+        var email = sessionStorage.getItem('zonix_email') || 'Usuario'
+        var greeting = document.createElement('span')
+        greeting.textContent = 'Hola ' + email
+        greeting.style.cssText = 'color:var(--primary-color);font-weight:600;font-size:0.9rem;padding:0 var(--spacing-sm);white-space:nowrap;'
+
+        var logoutBtn = document.createElement('button')
+        logoutBtn.textContent = 'Cerrar sesión'
+        logoutBtn.className = 'auth-link'
+        logoutBtn.style.cssText = 'background:none;border:none;cursor:pointer;font:inherit;padding:var(--spacing-sm) var(--spacing-md);color:var(--primary-color);border-radius:var(--border-radius);transition:background var(--transition),color var(--transition);'
+        logoutBtn.addEventListener('mouseenter', function() {
+            this.style.background = 'var(--secondary-color)'
+            this.style.color = '#fff'
+        })
+        logoutBtn.addEventListener('mouseleave', function() {
+            this.style.background = 'none'
+            this.style.color = 'var(--primary-color)'
+        })
+        logoutBtn.addEventListener('click', function() {
+            sessionStorage.removeItem('zonix_user')
+            sessionStorage.removeItem('zonix_email')
+            window.location.href = 'index.html'
+        })
+
+        var navRight = document.querySelector('.nav-right')
+        if (navRight) {
+            var authLinks = navRight.querySelectorAll('.auth-link')
+            authLinks.forEach(function(link) {
+                link.style.display = 'none'
+            })
+            navRight.insertBefore(greeting, navRight.firstChild)
+            navRight.insertBefore(logoutBtn, navRight.firstChild)
+        }
+    }
+
     var btnCarrito = document.getElementById('btn-carrito');
     if (btnCarrito) {
         btnCarrito.addEventListener('click', function(e) {

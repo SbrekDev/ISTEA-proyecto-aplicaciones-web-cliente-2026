@@ -1,0 +1,304 @@
+.admin-toolbar {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.admin-toolbar .search-input {
+    flex: 1;
+    min-width: 200px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.admin-toolbar .search-input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.admin-toolbar .btn-crear {
+    background: var(--primary-color);
+    color: #fff;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    transition: background var(--transition), transform var(--transition);
+    white-space: nowrap;
+}
+
+.admin-toolbar .btn-crear:hover {
+    background: var(--secondary-color);
+    transform: translateY(-1px);
+}
+
+#admin-productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.admin-card {
+    background: var(--bg-light);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform var(--transition), box-shadow var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.admin-card .card-imagen {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.admin-card .card-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition);
+}
+
+.admin-card:hover .card-imagen img {
+    transform: scale(1.05);
+}
+
+.admin-card .card-contenido {
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.admin-card .card-contenido h3 {
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.1rem;
+}
+
+.admin-card .card-descripcion {
+    color: var(--text-color);
+    font-size: 0.85rem;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.admin-card .card-precio {
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.admin-card .card-stock {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.admin-card .card-acciones {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: auto;
+}
+
+.admin-card .card-acciones button {
+    flex: 1;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+}
+
+.admin-card .btn-editar {
+    background: var(--secondary-color);
+    color: #fff;
+}
+
+.admin-card .btn-editar:hover {
+    background: var(--primary-color);
+}
+
+.admin-card .btn-eliminar {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.admin-card .btn-eliminar:hover {
+    background: #c0392b;
+}
+
+.admin-card .card-id {
+    font-size: 0.75rem;
+    color: #aaa;
+    margin-bottom: var(--spacing-sm);
+}
+
+.admin-loading {
+    text-align: center;
+    padding: var(--spacing-lg);
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+}
+
+.admin-error {
+    text-align: center;
+    padding: var(--spacing-lg);
+    color: #e74c3c;
+}
+
+.admin-empty {
+    text-align: center;
+    padding: var(--spacing-lg);
+    color: var(--secondary-color);
+}
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: var(--spacing-md);
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--bg-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    max-width: 600px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0);
+}
+
+.modal-content h2 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: var(--spacing-sm);
+}
+
+.modal-content form {
+    background: none;
+    padding: 0;
+    box-shadow: none;
+}
+
+.modal-acciones {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.modal-acciones button {
+    flex: 1;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--transition);
+}
+
+.modal-acciones .btn-guardar {
+    background: var(--secondary-color);
+    color: #fff;
+}
+
+.modal-acciones .btn-guardar:hover {
+    background: var(--primary-color);
+}
+
+.modal-acciones .btn-cancelar {
+    background: #95a5a6;
+    color: #fff;
+}
+
+.modal-acciones .btn-cancelar:hover {
+    background: #7f8c8d;
+}
+
+.modal-confirm {
+    text-align: center;
+}
+
+.modal-confirm p {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-color);
+}
+
+.modal-confirm .modal-acciones {
+    justify-content: center;
+}
+
+.modal-confirm .btn-eliminar-confirm {
+    background: #e74c3c;
+    color: #fff;
+}
+
+.modal-confirm .btn-eliminar-confirm:hover {
+    background: #c0392b;
+}
+
+@media (max-width: 767px) {
+    #admin-productos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-toolbar {
+        flex-direction: column;
+    }
+
+    .admin-toolbar .search-input {
+        width: 100%;
+    }
+
+    .admin-toolbar .btn-crear {
+        width: 100%;
+        justify-content: center;
+    }
+}

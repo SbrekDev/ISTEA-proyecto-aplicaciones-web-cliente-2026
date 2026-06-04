@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Productos | ZONIX</title>
+    <meta name="description" content="Panel de administración de productos">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/admin.css">
+</head>
+<body data-page="admin-productos">
+    <header>
+        <div class="title">
+            <h1>ZONIX</h1>
+        </div>
+        <p class="subtitle">Descubre los mejores juegos de mesa para toda la familia</p>
+    </header>
+
+    <span id="nav-placeholder"></span>
+    <script src="components/nav.js"></script>
+
+    <main class="main-content">
+        <section id="admin-panel">
+            <h2>Panel de Administración</h2>
+
+            <div class="admin-toolbar">
+                <input type="text" id="search-input" class="search-input" placeholder="Buscar productos por nombre...">
+                <a href="alta-producto.html" class="btn-crear">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    Crear Producto
+                </a>
+            </div>
+
+            <div id="admin-productos-grid">
+                <div class="admin-loading">Cargando productos...</div>
+            </div>
+        </section>
+    </main>
+
+    <div id="edit-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2>Editar Producto</h2>
+            <form id="editForm">
+                <input type="hidden" id="edit-id">
+
+                <div class="form-group">
+                    <label for="edit-nombre">Nombre del juego: <span aria-label="requerido">*</span></label>
+                    <input id="edit-nombre" type="text" required placeholder="Ej. Catan">
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-descripcion">Descripción: <span aria-label="requerido">*</span></label>
+                    <textarea id="edit-descripcion" rows="4" required placeholder="Breve descripción del juego"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-editorial">Editorial: <span aria-label="requerido">*</span></label>
+                    <input id="edit-editorial" type="text" required placeholder="Editorial o fabricante">
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-jugadores_min">Jugadores (mín): <span aria-label="requerido">*</span></label>
+                    <input id="edit-jugadores_min" type="number" min="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-jugadores_max">Jugadores (máx): <span aria-label="requerido">*</span></label>
+                    <input id="edit-jugadores_max" type="number" min="1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-tiempo_juego">Tiempo de juego: <span aria-label="requerido">*</span></label>
+                    <input id="edit-tiempo_juego" type="text" required placeholder="Ej. 30-60 min">
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-edad_min">Edad mínima recomendada: <span aria-label="requerido">*</span></label>
+                    <input id="edit-edad_min" type="number" min="3" max="99" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-categoria">Categoría: <span aria-label="requerido">*</span></label>
+                    <select id="edit-categoria" required>
+                        <option value="">Seleccionar...</option>
+                        <option value="estrategia">Estrategia</option>
+                        <option value="familia">Familia</option>
+                        <option value="party">Party</option>
+                        <option value="cooperativo">Cooperativo</option>
+                        <option value="eurogame">Eurojuego</option>
+                        <option value="tematico">Temático</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-idioma">Idioma: <span aria-label="requerido">*</span></label>
+                    <input id="edit-idioma" type="text" required placeholder="Idioma de reglas">
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-precio">Precio ($): <span aria-label="requerido">*</span></label>
+                    <input id="edit-precio" type="number" step="0.01" min="0" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-stock">Stock disponible:</label>
+                    <input id="edit-stock" type="number" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-imagen_url">URL de imagen del producto:</label>
+                    <input id="edit-imagen_url" type="url" placeholder="https://">
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-peso">Peso (kg):</label>
+                    <input id="edit-peso" type="number" step="0.01" min="0">
+                </div>
+
+                <div class="modal-acciones">
+                    <button type="button" class="btn-cancelar" id="btn-cancelar-edit">Cancelar</button>
+                    <button type="submit" class="btn-guardar">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="delete-modal" class="modal-overlay">
+        <div class="modal-content modal-confirm">
+            <h2>Eliminar Producto</h2>
+            <p id="delete-message">¿Estás seguro de que deseas eliminar este producto?</p>
+            <div class="modal-acciones">
+                <button class="btn-cancelar" id="btn-cancelar-delete">Cancelar</button>
+                <button class="btn-eliminar-confirm" id="btn-confirm-delete">Eliminar</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <address>
+            <p>ZONIX S.A.</p>
+            <p>Email: contacto@zonix.com</p>
+            <p>Teléfono: 0800-123-4567</p>
+        </address>
+        <p>&copy; 2026 ZONIX. Todos los derechos reservados.</p>
+    </footer>
+
+    <div id="toast-container"></div>
+
+    <script src="components/supabase-creds.js"></script>
+    <script src="components/products-crud.js"></script>
+    <script src="components/admin-productos.js"></script>
+</body>
+</html>
