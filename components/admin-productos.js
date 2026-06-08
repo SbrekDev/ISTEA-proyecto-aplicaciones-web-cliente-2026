@@ -32,8 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
             var desc = p.description || 'Sin descripción'
             var price = formatPrice(p.price)
             var stockText = p.stock !== null && p.stock !== undefined ? 'Stock: ' + p.stock : ''
+            var isOffer = p.offer === true
 
-            return '<div class="admin-card" data-id="' + p.id + '">' +
+            return '<div class="admin-card' + (isOffer ? ' oferta' : '') + '" data-id="' + p.id + '">' +
+                (isOffer ? '<span class="descuento">-' + (p.offerpercentage || 0) + '%</span>' : '') +
                 '<div class="card-imagen">' +
                     '<img src="' + imgSrc + '" alt="' + p.name + '" loading="lazy" onerror="this.src=\'' + getDefaultImage() + '\'">' +
                 '</div>' +
@@ -41,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     '<div class="card-id">ID: ' + p.id + '</div>' +
                     '<h3>' + p.name + '</h3>' +
                     '<p class="card-descripcion">' + desc + '</p>' +
-                    '<p class="card-precio">' + price + '</p>' +
+                    '<p class="card-precio">' + price + (isOffer ? ' <span class="descuento" style="font-size:0.75rem;padding:2px 6px;">-' + p.offerpercentage + '%</span>' : '') + '</p>' +
                     (stockText ? '<p class="card-stock">' + stockText + '</p>' : '') +
                     '<div class="card-acciones">' +
                         '<button class="btn-editar" data-id="' + p.id + '">Editar</button>' +
@@ -110,6 +112,11 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('edit-imagen_url').value = product.imageurl || ''
         document.getElementById('edit-peso').value = product.weight !== null && product.weight !== undefined ? product.weight : ''
 
+        var isOffer = product.offer === true
+        document.getElementById('edit-oferta').value = isOffer ? 'si' : 'no'
+        document.getElementById('edit-porcentaje_oferta').value = isOffer && product.offerpercentage ? product.offerpercentage : ''
+        document.getElementById('edit-porcentaje_oferta').disabled = !isOffer
+
         editModal.classList.add('active')
     }
 
@@ -168,7 +175,9 @@ document.addEventListener('DOMContentLoaded', function() {
             price: parseFloat(document.getElementById('edit-precio').value),
             stock: document.getElementById('edit-stock').value ? parseInt(document.getElementById('edit-stock').value) : null,
             imageurl: document.getElementById('edit-imagen_url').value.trim() || null,
-            weight: document.getElementById('edit-peso').value ? parseFloat(document.getElementById('edit-peso').value) : null
+            weight: document.getElementById('edit-peso').value ? parseFloat(document.getElementById('edit-peso').value) : null,
+            offer: document.getElementById('edit-oferta').value === 'si',
+            offerpercentage: document.getElementById('edit-oferta').value === 'si' ? parseInt(document.getElementById('edit-porcentaje_oferta').value) : null
         }
 
         updateProduct(currentEditId, updates)
@@ -184,6 +193,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 button.disabled = false
                 button.textContent = originalText
             })
+    })
+
+    document.getElementById('edit-oferta').addEventListener('change', function () {
+        var percInput = document.getElementById('edit-porcentaje_oferta')
+        if (this.value === 'si') {
+            percInput.disabled = false
+        } else {
+            percInput.disabled = true
+            percInput.value = ''
+        }
     })
 
     document.getElementById('btn-cancelar-edit').addEventListener('click', closeEditModal)

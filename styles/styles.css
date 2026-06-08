@@ -1358,3 +1358,51 @@ input[type="reset"]:active {
     from { opacity: 1; transform: translateX(0); }
     to { opacity: 0; transform: translateX(100%); }
 }
+
+.buscador {
+    margin-bottom: var(--spacing-lg);
+    display: flex;
+    justify-content: center;
+}
+
+.buscador input {
+    width: 100%;
+    max-width: 500px;
+    padding: 12px 18px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: border-color var(--transition);
+    outline: none;
+}
+
+.buscador input:focus {
+    border-color: var(--primary-color);
+}
+
+.descueto {
+    background: var(--secondary-color);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    text-transform: uppercase;
+}
+
+.carrito-vacio {
+    padding: 1rem;
+    text-align: center;
+    color: var(--text-muted);
+}
+
+.admin-loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    grid-column: 1 / -1;
+}
