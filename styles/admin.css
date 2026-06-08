@@ -10,16 +10,19 @@
     flex: 1;
     min-width: 200px;
     padding: var(--spacing-sm) var(--spacing-md);
-    border: 1px solid #ccc;
+    border: 1.5px solid var(--border-color);
     border-radius: var(--border-radius);
     font-size: 1rem;
     font-family: inherit;
+    background: var(--bg-light);
+    color: var(--text-color);
+    transition: border-color var(--transition), box-shadow var(--transition);
 }
 
 .admin-toolbar .search-input:focus {
     outline: none;
-    border-color: var(--secondary-color);
-    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
 }
 
 .admin-toolbar .btn-crear {
@@ -35,13 +38,14 @@
     display: inline-flex;
     align-items: center;
     gap: var(--spacing-sm);
-    transition: background var(--transition), transform var(--transition);
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
     white-space: nowrap;
 }
 
 .admin-toolbar .btn-crear:hover {
-    background: var(--secondary-color);
+    background: var(--primary-hover);
     transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
 }
 
 #admin-productos-grid {
@@ -52,17 +56,19 @@
 
 .admin-card {
     background: var(--bg-light);
-    border-radius: var(--border-radius);
+    border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow);
     overflow: hidden;
     transition: transform var(--transition), box-shadow var(--transition);
     display: flex;
     flex-direction: column;
     position: relative;
+    border: 1px solid var(--border-light);
 }
 
 .admin-card:hover {
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-4px);
 }
 
 .admin-card .card-imagen {
@@ -90,9 +96,10 @@
 }
 
 .admin-card .card-contenido h3 {
-    color: var(--secondary-color);
+    color: var(--text-color);
     margin-bottom: var(--spacing-sm);
     font-size: 1.1rem;
+    font-weight: 700;
 }
 
 .admin-card .card-descripcion {
@@ -107,15 +114,15 @@
 }
 
 .admin-card .card-precio {
-    color: var(--accent-color);
-    font-weight: bold;
+    color: var(--primary-color);
+    font-weight: 700;
     font-size: 1.25rem;
     margin-bottom: var(--spacing-md);
 }
 
 .admin-card .card-stock {
     font-size: 0.8rem;
-    color: var(--secondary-color);
+    color: var(--text-secondary);
     margin-bottom: var(--spacing-sm);
 }
 
@@ -137,60 +144,62 @@
 }
 
 .admin-card .btn-editar {
-    background: var(--secondary-color);
+    background: var(--primary-color);
     color: #fff;
 }
 
 .admin-card .btn-editar:hover {
-    background: var(--primary-color);
+    background: var(--primary-hover);
 }
 
 .admin-card .btn-eliminar {
-    background: #e74c3c;
+    background: var(--error);
     color: #fff;
 }
 
 .admin-card .btn-eliminar:hover {
-    background: #c0392b;
+    background: #DC2626;
 }
 
 .admin-card .card-id {
     font-size: 0.75rem;
-    color: #aaa;
+    color: var(--text-muted);
     margin-bottom: var(--spacing-sm);
 }
 
 .admin-loading {
     text-align: center;
-    padding: var(--spacing-lg);
-    color: var(--secondary-color);
+    padding: var(--spacing-xl);
+    color: var(--text-secondary);
     font-size: 1.1rem;
 }
 
 .admin-error {
     text-align: center;
-    padding: var(--spacing-lg);
-    color: #e74c3c;
+    padding: var(--spacing-xl);
+    color: var(--error);
 }
 
 .admin-empty {
     text-align: center;
-    padding: var(--spacing-lg);
-    color: var(--secondary-color);
+    padding: var(--spacing-xl);
+    color: var(--text-secondary);
 }
 
 .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(15, 23, 42, 0.6);
     z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity var(--transition), visibility var(--transition);
     padding: var(--spacing-md);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
 
 .modal-overlay.active {
@@ -199,26 +208,29 @@
 }
 
 .modal-content {
-    background: var(--bg-color);
-    border-radius: var(--border-radius);
-    padding: var(--spacing-lg);
+    background: var(--bg-light);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
     max-width: 600px;
     width: 100%;
     max-height: 90vh;
     overflow-y: auto;
-    transform: translateY(20px);
-    transition: transform 0.3s ease;
+    transform: translateY(20px) scale(0.95);
+    transition: transform var(--transition-slow);
+    box-shadow: var(--shadow-xl);
+    border: 1px solid var(--border-light);
 }
 
 .modal-overlay.active .modal-content {
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
 }
 
 .modal-content h2 {
     color: var(--primary-color);
     margin-bottom: var(--spacing-md);
-    border-bottom: 2px solid var(--secondary-color);
+    border-bottom: 2px solid var(--border-color);
     padding-bottom: var(--spacing-sm);
+    font-weight: 700;
 }
 
 .modal-content form {
@@ -245,21 +257,22 @@
 }
 
 .modal-acciones .btn-guardar {
-    background: var(--secondary-color);
+    background: var(--primary-color);
     color: #fff;
 }
 
 .modal-acciones .btn-guardar:hover {
-    background: var(--primary-color);
+    background: var(--primary-hover);
 }
 
 .modal-acciones .btn-cancelar {
-    background: #95a5a6;
-    color: #fff;
+    background: var(--bg-light-alt);
+    color: var(--text-color);
+    border: 1.5px solid var(--border-color);
 }
 
 .modal-acciones .btn-cancelar:hover {
-    background: #7f8c8d;
+    background: var(--border-color);
 }
 
 .modal-confirm {
@@ -277,12 +290,12 @@
 }
 
 .modal-confirm .btn-eliminar-confirm {
-    background: #e74c3c;
+    background: var(--error);
     color: #fff;
 }
 
 .modal-confirm .btn-eliminar-confirm:hover {
-    background: #c0392b;
+    background: #DC2626;
 }
 
 @media (max-width: 767px) {

@@ -41,16 +41,18 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       if (ofertasGrid) {
-        var toShow = offerProducts.length > 0 ? offerProducts.slice(0, 6) : products.slice(0, 3)
-        ofertasGrid.innerHTML = toShow.map(function (p) {
+        if (offerProducts.length === 0) {
+          ofertasGrid.innerHTML = '<p style="grid-column:1/-1;text-align:center;color:var(--text-muted);">No hay ofertas disponibles.</p>'
+          return
+        }
+        ofertasGrid.innerHTML = offerProducts.slice(0, 6).map(function (p) {
           var imgSrc = p.imageurl || getDefaultImage()
           var desc = p.description || ''
-          var isOffer = p.offer === true
-          var discountPct = isOffer && p.offerpercentage ? p.offerpercentage : 0
-          var discountedPrice = isOffer ? p.price * (1 - discountPct / 100) : p.price
+          var discountPct = p.offerpercentage || 0
+          var discountedPrice = p.price * (1 - discountPct / 100)
           return '' +
-            '<article class="producto-card' + (isOffer ? ' oferta' : '') + '">' +
-              (isOffer ? '<span class="descuento">-' + discountPct + '%</span>' : '<span class="descueto">¡OFERTA!</span>') +
+            '<article class="producto-card oferta">' +
+              '<span class="descuento">-' + discountPct + '%</span>' +
               '<div class="card-imagen">' +
                 '<img src="' + imgSrc + '" alt="' + p.name + '" loading="lazy" onerror="this.src=\'' + getDefaultImage() + '\'">' +
               '</div>' +
@@ -58,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 '<h3>' + p.name + '</h3>' +
                 '<p class="card-descripcion">' + desc + '</p>' +
                 '<p class="card-precio">' +
-                  (isOffer ? '<span class="precio-original">' + formatPrice(p.price) + '</span> ' : '') +
+                  '<span class="precio-original">' + formatPrice(p.price) + '</span> ' +
                   formatPrice(discountedPrice) +
                 '</p>' +
                 '<a href="producto.html?id=' + p.id + '" class="btn-ver-detalle">Ver Detalle</a>' +

@@ -28,7 +28,7 @@
     font-size: 1.5rem;
     margin-bottom: var(--spacing-sm);
     padding-bottom: var(--spacing-sm);
-    border-bottom: 1px solid #eee;
+    font-weight: 700;
 }
 
 .carrito-producto-item {
@@ -36,11 +36,17 @@
     flex-wrap: wrap;
     gap: var(--spacing-lg);
     background: var(--bg-light);
-    border-radius: var(--border-radius);
-    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
     box-shadow: var(--shadow);
     position: relative;
     justify-content: space-between;
+    border: 1px solid var(--border-light);
+    transition: box-shadow var(--transition);
+}
+
+.carrito-producto-item:hover {
+    box-shadow: var(--shadow-hover);
 }
 
 .btn-cerrar-item {
@@ -49,7 +55,7 @@
     right: var(--spacing-sm);
     background: transparent;
     border: none;
-    color: #e74c3c;
+    color: var(--error);
     font-size: 1.5rem;
     cursor: pointer;
     line-height: 1;
@@ -100,12 +106,12 @@
 }
 
 .item-categoria {
-    color: var(--secondary-color);
+    color: var(--text-secondary);
     font-size: 0.875rem;
 }
 
 .item-disponibilidad {
-    color: #27ae60;
+    color: var(--success);
     font-size: 0.875rem;
 }
 
@@ -132,13 +138,13 @@
 .item-cantidad .cantidad-control {
     display: flex;
     align-items: center;
-    border: 1px solid #ccc;
+    border: 1.5px solid var(--border-color);
     border-radius: var(--border-radius);
     overflow: hidden;
 }
 
 .item-cantidad .cantidad-btn {
-    background: var(--text-color);
+    background: var(--primary-color);
     border: none;
     width: 32px;
     height: 32px;
@@ -149,22 +155,26 @@
     align-items: center;
     justify-content: center;
     color: #fff;
+    border-radius: 0;
 }
 
 .item-cantidad .cantidad-btn:hover {
-    background: var(--secondary-color);
+    background: var(--primary-hover);
+    box-shadow: none;
+    transform: none;
 }
 
 .item-cantidad input {
     width: 40px;
     height: 32px;
     border: none;
-    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
+    border-left: 1.5px solid var(--border-color);
+    border-right: 1.5px solid var(--border-color);
     text-align: center;
     font-size: 0.9rem;
     font-weight: 600;
     background: var(--bg-light);
+    color: var(--text-color);
 }
 
 .item-cantidad .cantidad-control {
@@ -182,17 +192,18 @@
 .item-precio .precio-valor {
     font-size: 1.25rem;
     font-weight: 700;
-    color: var(--accent-color);
+    color: var(--primary-color);
 }
 
 .carrito-resumen {
     background: var(--bg-light);
-    border-radius: var(--border-radius);
-    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
     box-shadow: var(--shadow);
     position: sticky;
     top: var(--spacing-lg);
     height: fit-content;
+    border: 1px solid var(--border-light);
 }
 
 .carrito-resumen h3 {
@@ -200,7 +211,7 @@
     font-size: 1.25rem;
     margin-bottom: var(--spacing-lg);
     padding-bottom: var(--spacing-md);
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .resumen-items {
@@ -209,7 +220,7 @@
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
     padding-bottom: var(--spacing-md);
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .resumen-item {
@@ -220,7 +231,7 @@
 }
 
 .envio-gratis {
-    color: #27ae60;
+    color: var(--success);
     font-weight: 600;
 }
 
@@ -234,12 +245,12 @@
 }
 
 .total-valor {
-    color: var(--accent-color);
+    color: var(--primary-color);
 }
 
 .btn-comprar {
     width: 100%;
-    background: var(--secondary-color);
+    background: var(--primary-color);
     color: #fff;
     padding: var(--spacing-md) var(--spacing-lg);
     border: none;
@@ -247,12 +258,14 @@
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background var(--transition);
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
     margin-bottom: var(--spacing-md);
 }
 
 .btn-comprar:hover {
-    background: var(--primary-color);
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
 }
 
 .resumen-seguridad {
@@ -261,11 +274,11 @@
     justify-content: center;
     gap: var(--spacing-sm);
     font-size: 0.875rem;
-    color: var(--secondary-color);
+    color: var(--text-secondary);
 }
 
 .resumen-seguridad svg {
-    color: #27ae60;
+    color: var(--success);
 }
 
 @media (max-width: 767px) {
