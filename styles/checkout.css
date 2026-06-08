@@ -28,19 +28,19 @@
     align-items: center;
     gap: var(--spacing-md);
     padding-bottom: var(--spacing-md);
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .step-number {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 32px;
-    height: 32px;
-    background: var(--secondary-color);
+    width: 36px;
+    height: 36px;
+    background: var(--primary-color);
     color: #fff;
     border-radius: 50%;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.9rem;
     flex-shrink: 0;
 }
@@ -85,16 +85,19 @@
 .form-group input,
 .form-group select {
     padding: var(--spacing-sm) var(--spacing-md);
-    border: 1px solid #ccc;
+    border: 1.5px solid var(--border-color);
     border-radius: var(--border-radius);
     font-size: 1rem;
     background: var(--bg-light);
+    color: var(--text-color);
+    transition: border-color var(--transition), box-shadow var(--transition);
 }
 
 .form-group input:focus,
 .form-group select:focus {
     outline: none;
-    border-color: var(--secondary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
 }
 
 .fecha-control {
@@ -110,33 +113,36 @@
 
 .fecha-control span {
     font-weight: 600;
-    color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 .btn-confirmar {
     width: 100%;
     padding: var(--spacing-md) var(--spacing-lg);
-    background: var(--secondary-color);
+    background: var(--primary-color);
     color: #fff;
     border: none;
     border-radius: var(--border-radius);
     font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: background var(--transition);
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
     margin-top: var(--spacing-md);
 }
 
 .btn-confirmar:hover {
-    background: var(--primary-color);
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
 }
 
 .checkout-resumen {
     background: var(--bg-light);
-    border-radius: var(--border-radius);
-    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
     box-shadow: var(--shadow);
     height: fit-content;
+    border: 1px solid var(--border-light);
 }
 
 .checkout-resumen h3 {
@@ -144,7 +150,7 @@
     font-size: 1.25rem;
     margin-bottom: var(--spacing-lg);
     padding-bottom: var(--spacing-md);
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .resumen-productos {
@@ -153,7 +159,7 @@
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-lg);
     padding-bottom: var(--spacing-md);
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--border-color);
     max-height: 300px;
     overflow-y: auto;
 }
@@ -187,12 +193,12 @@
 
 .resumen-producto-info span {
     font-size: 0.8rem;
-    color: var(--secondary-color);
+    color: var(--text-secondary);
 }
 
 .resumen-producto-precio {
     font-weight: 600;
-    color: var(--accent-color);
+    color: var(--primary-color);
     font-size: 0.95rem;
 }
 
@@ -209,18 +215,18 @@
     display: flex;
     justify-content: space-between;
     padding: var(--spacing-md) 0;
-    border-top: 1px solid #eee;
+    border-top: 1px solid var(--border-color);
     font-size: 1.25rem;
     font-weight: 700;
     color: var(--primary-color);
 }
 
 .resumen-total .total-valor {
-    color: var(--accent-color);
+    color: var(--primary-color);
 }
 
 .envio-gratis {
-    color: #27ae60;
+    color: var(--success);
     font-weight: 600;
 }
 
@@ -232,12 +238,12 @@
     padding: var(--spacing-md);
     border-radius: var(--border-radius);
     font-size: 0.875rem;
-    color: var(--secondary-color);
+    color: var(--text-secondary);
     margin-top: var(--spacing-md);
 }
 
 .resumen-proteccion svg {
-    color: #27ae60;
+    color: var(--success);
 }
 
 @media (max-width: 767px) {
