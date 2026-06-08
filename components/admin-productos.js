@@ -30,12 +30,13 @@ document.addEventListener('DOMContentLoaded', function() {
         grid.innerHTML = products.map(function(p) {
             var imgSrc = p.imageurl || getDefaultImage()
             var desc = p.description || 'Sin descripción'
-            var price = formatPrice(p.price)
-            var stockText = p.stock !== null && p.stock !== undefined ? 'Stock: ' + p.stock : ''
             var isOffer = p.offer === true
+            var discountPct = isOffer && p.offerpercentage ? p.offerpercentage : 0
+            var discountedPrice = isOffer ? p.price * (1 - discountPct / 100) : p.price
+            var stockText = p.stock !== null && p.stock !== undefined ? 'Stock: ' + p.stock : ''
 
             return '<div class="admin-card' + (isOffer ? ' oferta' : '') + '" data-id="' + p.id + '">' +
-                (isOffer ? '<span class="descuento">-' + (p.offerpercentage || 0) + '%</span>' : '') +
+                (isOffer ? '<span class="descuento">-' + discountPct + '%</span>' : '') +
                 '<div class="card-imagen">' +
                     '<img src="' + imgSrc + '" alt="' + p.name + '" loading="lazy" onerror="this.src=\'' + getDefaultImage() + '\'">' +
                 '</div>' +
@@ -43,7 +44,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     '<div class="card-id">ID: ' + p.id + '</div>' +
                     '<h3>' + p.name + '</h3>' +
                     '<p class="card-descripcion">' + desc + '</p>' +
-                    '<p class="card-precio">' + price + (isOffer ? ' <span class="descuento" style="font-size:0.75rem;padding:2px 6px;">-' + p.offerpercentage + '%</span>' : '') + '</p>' +
+                    '<p class="card-precio">' +
+                        (isOffer ? '<span class="precio-original">' + formatPrice(p.price) + '</span> ' : '') +
+                        formatPrice(discountedPrice) +
+                    '</p>' +
                     (stockText ? '<p class="card-stock">' + stockText + '</p>' : '') +
                     '<div class="card-acciones">' +
                         '<button class="btn-editar" data-id="' + p.id + '">Editar</button>' +
