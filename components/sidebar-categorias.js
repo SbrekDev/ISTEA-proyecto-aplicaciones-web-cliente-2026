@@ -36,6 +36,7 @@ function cargarSidebarCategorias(containerId, showFiltros) {
                 '</select>' +
             '</div>' +
             '<button class="btn-aplicar-filtros" id="btn-aplicar-filtros">Aplicar Filtros</button>' +
+            '<button class="btn-limpiar-filtros" id="btn-limpiar-filtros">Limpiar Filtros</button>' +
         '</div>' : '';
 
     container.innerHTML =
@@ -57,25 +58,87 @@ function cargarSidebarCategorias(containerId, showFiltros) {
         '</aside>'
     ;
 
+    var params = obtenerFiltrosCombinados();
+
     if (showFiltros) {
-        var btn = document.getElementById('btn-aplicar-filtros')
-        if (btn) {
-            btn.addEventListener('click', function () {
-                var params = new URLSearchParams()
-                var cat = new URLSearchParams(window.location.search).get('categoria')
-                if (cat) params.set('categoria', cat)
-                var pMin = document.getElementById('filtro-precio-min').value
-                var pMax = document.getElementById('filtro-precio-max').value
-                if (pMin) params.set('precio_min', pMin)
-                if (pMax) params.set('precio_max', pMax)
-                var jMin = document.getElementById('filtro-jugadores-min').value
-                var jMax = document.getElementById('filtro-jugadores-max').value
-                if (jMin) params.set('jugadores_min', jMin)
-                if (jMax) params.set('jugadores_max', jMax)
-                var edad = document.getElementById('filtro-edad').value
-                if (edad) params.set('edad_min', edad)
-                window.location.href = 'catalogo.html?' + params.toString()
-            })
+        if (params.get('precio_min')) document.getElementById('filtro-precio-min').value = params.get('precio_min');
+        if (params.get('precio_max')) document.getElementById('filtro-precio-max').value = params.get('precio_max');
+        if (params.get('jugadores_min')) document.getElementById('filtro-jugadores-min').value = params.get('jugadores_min');
+        if (params.get('jugadores_max')) document.getElementById('filtro-jugadores-max').value = params.get('jugadores_max');
+        if (params.get('edad_min')) document.getElementById('filtro-edad').value = params.get('edad_min');
+
+        document.getElementById('btn-aplicar-filtros').addEventListener('click', function () {
+            var nuevos = new URLSearchParams();
+            if (params.get('categoria')) nuevos.set('categoria', params.get('categoria'));
+            var pMin = document.getElementById('filtro-precio-min').value;
+            var pMax = document.getElementById('filtro-precio-max').value;
+            if (pMin) nuevos.set('precio_min', pMin);
+            if (pMax) nuevos.set('precio_max', pMax);
+            var jMin = document.getElementById('filtro-jugadores-min').value;
+            var jMax = document.getElementById('filtro-jugadores-max').value;
+            if (jMin) nuevos.set('jugadores_min', jMin);
+            if (jMax) nuevos.set('jugadores_max', jMax);
+            var edad = document.getElementById('filtro-edad').value;
+            if (edad) nuevos.set('edad_min', edad);
+            guardarFiltros(nuevos);
+            window.location.href = 'catalogo.html?' + nuevos.toString();
+        });
+
+        document.getElementById('btn-limpiar-filtros').addEventListener('click', function () {
+            sessionStorage.removeItem('zonix_filters');
+            window.location.href = 'catalogo.html';
+        });
+    }
+
+    marcarCategoriaActiva(params.get('categoria'));
+
+    var todosLink = document.querySelector('.categorias-list a[href="catalogo.html"]');
+    if (todosLink) {
+        todosLink.addEventListener('click', function () {
+            sessionStorage.removeItem('zonix_filters');
+        });
+    }
+}
+
+function obtenerFiltrosCombinados() {
+    var params = new URLSearchParams(window.location.search);
+    var guardados = sessionStorage.getItem('zonix_filters');
+    if (guardados) {
+        try {
+            var obj = JSON.parse(guardados);
+            for (var key in obj) {
+                if (obj.hasOwnProperty(key) && !params.has(key)) {
+                    params.set(key, obj[key]);
+                }
+            }
+        } catch (e) {}
+    }
+    return params;
+}
+
+function guardarFiltros(params) {
+    var obj = {};
+    params.forEach(function (value, key) {
+        obj[key] = value;
+    });
+    sessionStorage.setItem('zonix_filters', JSON.stringify(obj));
+}
+
+function marcarCategoriaActiva(categoria) {
+    var links = document.querySelectorAll('.categorias-list a');
+    if (!categoria) {
+        if (links.length > 0) links[0].classList.add('active');
+        return;
+    }
+    for (var i = 0; i < links.length; i++) {
+        var href = links[i].getAttribute('href');
+        var idx = href.indexOf('?');
+        if (idx !== -1) {
+            var linkParams = new URLSearchParams(href.substring(idx));
+            if (linkParams.get('categoria') && linkParams.get('categoria').toLowerCase() === categoria.toLowerCase()) {
+                links[i].classList.add('active');
+                break;
+            }
         }
     }
 }
