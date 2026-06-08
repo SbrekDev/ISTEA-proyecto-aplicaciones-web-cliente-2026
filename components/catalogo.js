@@ -1,8 +1,21 @@
+function combinarFiltros() {
+  var params = new URLSearchParams(window.location.search)
+  var hayParams = params.toString() !== ''
+  if (hayParams) return params
+  var guardados = sessionStorage.getItem('zonix_filters')
+  if (guardados) {
+    try {
+      return new URLSearchParams(JSON.parse(guardados))
+    } catch (e) {}
+  }
+  return params
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   var grid = document.querySelector('.productos-grid')
   if (!grid) return
 
-  var params = new URLSearchParams(window.location.search)
+  var params = combinarFiltros()
   var catFilter = params.get('categoria')
   var precioMin = params.get('precio_min')
   var precioMax = params.get('precio_max')
@@ -118,15 +131,31 @@ document.addEventListener('DOMContentLoaded', function () {
   if (searchInput) {
     searchInput.addEventListener('keydown', function (e) {
       if (e.key === 'Enter') {
-        var params = new URLSearchParams(window.location.search)
-        if (this.value.trim()) {
-          params.set('search', this.value.trim())
-        } else {
-          params.delete('search')
+        var nuevos = new URLSearchParams(window.location.search)
+        var hayParams = nuevos.toString() !== ''
+        if (!hayParams) {
+          var guardados = sessionStorage.getItem('zonix_filters')
+          if (guardados) {
+            try { nuevos = new URLSearchParams(JSON.parse(guardados)) } catch (e) {}
+          }
         }
-        window.location.href = 'catalogo.html?' + params.toString()
+        if (this.value.trim()) {
+          nuevos.set('search', this.value.trim())
+        } else {
+          nuevos.delete('search')
+        }
+        var obj = {}
+        nuevos.forEach(function (v, k) { obj[k] = v })
+        sessionStorage.setItem('zonix_filters', JSON.stringify(obj))
+        window.location.href = 'catalogo.html?' + nuevos.toString()
       }
     })
+  }
+
+  if (params.toString() !== '') {
+    var obj = {}
+    params.forEach(function (v, k) { obj[k] = v })
+    sessionStorage.setItem('zonix_filters', JSON.stringify(obj))
   }
 })
 

@@ -407,6 +407,20 @@ nav a:focus {
     font-weight: 600;
 }
 
+.categorias-list a.active {
+    background: var(--primary-color);
+    color: #fff;
+    padding-left: var(--spacing-lg);
+    font-weight: 700;
+    border-left: 3px solid var(--secondary-color);
+}
+
+.categorias-list a.active:hover {
+    background: var(--primary-hover);
+    color: #fff;
+    font-weight: 700;
+}
+
 .filtros {
     border-top: 1px solid var(--border-color);
     padding-top: var(--spacing-md);
@@ -467,8 +481,22 @@ nav a:focus {
 .btn-aplicar-filtros {
     width: 100%;
     margin-top: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
     background: var(--primary-color);
+}
+
+.btn-limpiar-filtros {
+    width: 100%;
+    margin-bottom: var(--spacing-md);
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1.5px solid var(--border-color);
+}
+
+.btn-limpiar-filtros:hover {
+    background: var(--bg-light-alt);
+    color: var(--text-color);
+    border-color: var(--text-muted);
 }
 
 main {
