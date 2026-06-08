@@ -133,4 +133,12 @@ document.addEventListener('DOMContentLoaded', function() {
             e.stopPropagation();
         });
     }
+
+    var bgBlobs = document.querySelector('.bg-blobs');
+    if (!bgBlobs) {
+        var blobsDiv = document.createElement('div');
+        blobsDiv.className = 'bg-blobs';
+        blobsDiv.innerHTML = '<div class="bg-blob bg-blob-1"></div><div class="bg-blob bg-blob-2"></div><div class="bg-blob bg-blob-3"></div>';
+        document.body.prepend(blobsDiv);
+    }
 });
