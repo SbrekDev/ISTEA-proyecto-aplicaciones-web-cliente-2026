@@ -30,94 +30,12 @@
 
             <section id="destacados">
                 <h2>Juegos Destacados</h2>
-                <div class="grid-destacados">
-                    <article class="card-destacado">
-                        <div class="card-imagen">
-                            <img src="assets/images/catan1.webp" alt="Catan">
-                        </div>
-                        <div class="card-contenido">
-                            <h3>Catan</h3>
-                            <p class="card-descripcion">Construye tu reino en la isla de Catan. Un clásico de estrategia que ha conquistado millones.</p>
-                            <p class="card-precio">$45.000</p>
-                            <a href="producto.html" class="btn-ver-detalle">Ver Detalle</a>
-                        </div>
-                    </article>
-                    <article class="card-destacado">
-                        <div class="card-imagen">
-                            <img src="assets/images/carcassone.webp" alt="Carcassonne">
-                        </div>
-                        <div class="card-contenido">
-                            <h3>Carcassonne</h3>
-                            <p class="card-descripcion">Construye medievales paisajes en este adictivo juego de construcción de ciudades.</p>
-                            <p class="card-precio">$35.000</p>
-                            <a href="producto.html" class="btn-ver-detalle">Ver Detalle</a>
-                        </div>
-                    </article>
-                    <article class="card-destacado">
-                        <div class="card-imagen">
-                            <img src="assets/images/tickettoride.webp" alt="Ticket to Ride">
-                        </div>
-                        <div class="card-contenido">
-                            <h3>Ticket to Ride</h3>
-                            <p class="card-descripcion">La aventura ferroviaria. Conecta ciudades y completa rutas en este familiar juego.</p>
-                            <p class="card-precio">$50.000</p>
-                            <a href="producto.html" class="btn-ver-detalle">Ver Detalle</a>
-                        </div>
-                    </article>
-                    <article class="card-destacado">
-                        <div class="card-imagen">
-                            <img src="assets/images/7wonders.webp" alt="7 Wonders">
-                        </div>
-                        <div class="card-contenido">
-                            <h3>7 Wonders</h3>
-                            <p class="card-descripcion">Construye las maravillas del mundo antiguo en este competitivo juego de cartas.</p>
-                            <p class="card-precio">$40.000</p>
-                            <a href="producto.html" class="btn-ver-detalle">Ver Detalle</a>
-                        </div>
-                    </article>
-                </div>
+                <div class="grid-destacados"></div>
             </section>
 
             <section id="mejores-ofertas">
                 <h2>Mejores Ofertas</h2>
-                <div class="grid-destacados">
-                    <article class="producto-card oferta">
-                        <span class="descuento">-30%</span>
-                        <div class="card-imagen">
-                            <img src="assets/images/scratchwars.webp" alt="Scratch Wars">
-                        </div>
-                        <div class="card-contenido">
-                            <h3>Scratch Wars</h3>
-                            <p class="card-descripcion">Combate espacial estratégico con naves y despliegue táctico.</p>
-                            <p class="card-precio"><span class="precio-original">$60.000</span> $42.000</p>
-                            <a href="producto.html" class="btn-ver-detalle">Ver Detalle</a>
-                        </div>
-                    </article>
-                    <article class="producto-card oferta">
-                        <span class="descuento">-25%</span>
-                        <div class="card-imagen">
-                            <img src="assets/images/dominion.webp" alt="Dominion">
-                        </div>
-                        <div class="card-contenido">
-                            <h3>Dominion</h3>
-                            <p class="card-descripcion">Construye tu mazo de cartas y domina el reino.</p>
-                            <p class="card-precio"><span class="precio-original">$40.000</span> $30.000</p>
-                            <a href="producto.html" class="btn-ver-detalle">Ver Detalle</a>
-                        </div>
-                    </article>
-                    <article class="producto-card oferta">
-                        <span class="descuento">-40%</span>
-                        <div class="card-imagen">
-                            <img src="assets/images/pandemic.webp" alt="Pandemic">
-                        </div>
-                        <div class="card-contenido">
-                            <h3>Pandemic</h3>
-                            <p class="card-descripcion">Juego cooperativo de enfermedades globales.</p>
-                            <p class="card-precio"><span class="precio-original">$50.000</span> $30.000</p>
-                            <a href="producto.html" class="btn-ver-detalle">Ver Detalle</a>
-                        </div>
-                    </article>
-                </div>
+                <div class="grid-destacados"></div>
             </section>
 
             <section id="sucursal">
@@ -139,7 +57,11 @@
         </address>
         <p>&copy; 2026 ZONIX. Todos los derechos reservados.</p>
     </footer>
+    <script src="components/supabase-creds.js"></script>
+    <script src="components/products-crud.js"></script>
+    <script src="components/cart.js"></script>
     <script src="components/sidebar-categorias.js"></script>
+    <script src="components/index.js"></script>
     <script>
         document.getElementById('btn-menu-filtros').addEventListener('click', function() {
             document.getElementById('sidebar-container').classList.toggle('active');

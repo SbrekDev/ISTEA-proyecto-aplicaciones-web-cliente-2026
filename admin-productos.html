@@ -116,6 +116,19 @@
                     <input id="edit-peso" type="number" step="0.01" min="0">
                 </div>
 
+                <div class="form-group">
+                    <label for="edit-oferta">¿En oferta?</label>
+                    <select id="edit-oferta">
+                        <option value="no">No</option>
+                        <option value="si">Sí</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="edit-porcentaje_oferta">Porcentaje de descuento (%):</label>
+                    <input id="edit-porcentaje_oferta" type="number" min="1" max="99" step="1" disabled>
+                </div>
+
                 <div class="modal-acciones">
                     <button type="button" class="btn-cancelar" id="btn-cancelar-edit">Cancelar</button>
                     <button type="submit" class="btn-guardar">Guardar Cambios</button>

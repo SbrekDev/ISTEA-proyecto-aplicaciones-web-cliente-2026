@@ -96,6 +96,19 @@
                     <input id="peso" name="peso" type="number" step="0.01" min="0">
                 </div>
 
+                <div class="form-group">
+                    <label for="oferta">¿En oferta?</label>
+                    <select id="oferta" name="oferta">
+                        <option value="no">No</option>
+                        <option value="si">Sí</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="porcentaje_oferta">Porcentaje de descuento (%):</label>
+                    <input id="porcentaje_oferta" name="porcentaje_oferta" type="number" min="1" max="99" step="1" disabled>
+                </div>
+
                 <button type="submit">Dar de alta</button>
             </form>
         </section>
@@ -115,6 +128,18 @@
     <script src="components/supabase-creds.js"></script>
     <script src="components/products-crud.js"></script>
     <script>
+        document.getElementById('oferta').addEventListener('change', function () {
+            var percInput = document.getElementById('porcentaje_oferta')
+            if (this.value === 'si') {
+                percInput.disabled = false
+                percInput.required = true
+            } else {
+                percInput.disabled = true
+                percInput.required = false
+                percInput.value = ''
+            }
+        })
+
         document.getElementById('altaProductoForm').addEventListener('submit', async function (e) {
             e.preventDefault()
 
@@ -122,6 +147,8 @@
             const originalText = button.textContent
             button.disabled = true
             button.textContent = 'Guardando...'
+
+            const isOffer = document.getElementById('oferta').value === 'si'
 
             const product = {
                 name: document.getElementById('nombre').value.trim(),
@@ -136,7 +163,9 @@
                 price: parseFloat(document.getElementById('precio').value),
                 stock: document.getElementById('stock').value ? parseInt(document.getElementById('stock').value) : null,
                 imageurl: document.getElementById('imagen_url').value.trim() || null,
-                weight: document.getElementById('peso').value ? parseFloat(document.getElementById('peso').value) : null
+                weight: document.getElementById('peso').value ? parseFloat(document.getElementById('peso').value) : null,
+                offer: isOffer,
+                offerpercentage: isOffer ? parseInt(document.getElementById('porcentaje_oferta').value) : null
             }
 
             try {

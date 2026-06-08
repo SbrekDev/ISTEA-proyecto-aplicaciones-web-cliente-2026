@@ -18,6 +18,9 @@
     </header>
 
     <span id="nav-placeholder"></span>
+    <script src="components/supabase-creds.js"></script>
+    <script src="components/products-crud.js"></script>
+    <script src="components/cart.js"></script>
     <script src="components/nav.js"></script>
 
     <main class="checkout-page">
@@ -127,57 +130,11 @@
                 <button type="submit" class="btn-confirmar">Confirmar Compra</button>
             </section>
 
-            <aside class="checkout-resumen">
-                <h3>Resumen del Pedido</h3>
-                
-                <div class="resumen-productos">
-                    <div class="resumen-producto">
-                        <img src="assets/images/catan1.webp" alt="Catan">
-                        <div class="resumen-producto-info">
-                            <h4>Catan</h4>
-                            <span>1 unidad</span>
-                        </div>
-                        <span class="resumen-producto-precio">$45.000</span>
-                    </div>
-                    <div class="resumen-producto">
-                        <img src="assets/images/carcassone.webp" alt="Carcassonne">
-                        <div class="resumen-producto-info">
-                            <h4>Carcassonne</h4>
-                            <span>1 unidad</span>
-                        </div>
-                        <span class="resumen-producto-precio">$35.000</span>
-                    </div>
-                    <div class="resumen-producto">
-                        <img src="assets/images/tickettoride.webp" alt="Ticket to Ride">
-                        <div class="resumen-producto-info">
-                            <h4>Ticket to Ride</h4>
-                            <span>1 unidad</span>
-                        </div>
-                        <span class="resumen-producto-precio">$50.000</span>
-                    </div>
-                </div>
-
-                <div class="resumen-subtotal">
-                    <span>Subtotal</span>
-                    <span>$130.000</span>
-                </div>
-                <div class="resumen-envio">
-                    <span>Envío</span>
-                    <span class="envio-gratis">Gratis</span>
-                </div>
-                <div class="resumen-total">
-                    <span>Total</span>
-                    <span class="total-valor">$130.000</span>
-                </div>
-
-                <div class="resumen-proteccion">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                    <span>Tu compra está protegida</span>
-                </div>
-            </aside>
+            <aside class="checkout-resumen"></aside>
         </div>
     </main>
 
+    <script src="components/checkout.js"></script>
     <footer>
         <address>
             <p>ZONIX S.A.</p>
